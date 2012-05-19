@@ -1,0 +1,3 @@
+regular 2 margine
+no-margin (width of 2 margin wider)
+no margin-left & right (width of 1 margin wider)
