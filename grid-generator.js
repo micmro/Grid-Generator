@@ -66,7 +66,6 @@
         var exampleHtml = "";
         addComments = $("#addCommentsCheck").is(":checked");
 
-
         if (!numCols && numCols < 1) {
             logError("Please specify the number of Columns (>0)");
             return;
@@ -81,25 +80,25 @@
         exampleHtml = "<div class=\"gridHolder\">\n\t<div class=\"row\">";
 
         for (var i = 1; i <= numCols; i++) {
-            resultTxt += ".column" + i + "of" + numCols + ((i < numCols) ? ", " : " ");
+            resultTxt += "." + util.convert(i) + ((i < numCols) ? ", " : " ");
 
             if (i < numCols) {
-                exampleHtml += "\n\t\t<div class=\"" + "column" + i + "of" + numCols + "\">" + i + " of " + numCols;
-                exampleHtml += "</div> <div class=\"" + "column" + (numCols - i) + "of" + numCols + "\">" + (numCols - i) + " of " + numCols + "</div>";
+                exampleHtml += "\n\t\t<div class=\"" + util.convert(i) + "\">" + util.convert(i) + " (of " + numCols + ")";
+                exampleHtml += "</div> <div class=\"" + util.convert(numCols - i) + "\">" + util.convert(numCols - i) + " (of " + numCols + ")</div>";
             } else {
-
+                console.log();
                 if (nestedLevel > 1) {
-                    exampleHtml += "\n\t\t<div class=\"" + "column" + i + "of" + numCols + "\">\n\t\t\t<div class=\"row\">";
+                    exampleHtml += "\n\t\t<div class=\"" + util.convert(i) + "\">\n\t\t\t<div class=\"row\">";
                     for (var j = 1; j <= numCols; j++) {
-                        var classes = "column1of" + numCols + (j === 1 ? " no-margin-left" : (j === numCols ? " no-margin-right" : ""));
-                        exampleHtml += "\n\t\t\t\t<div class=\"" + classes + "\">Level 2 " + 1 + " of " + numCols + "</div>";
+                        var classes = util.convert(1) + (j === 1 ? " no-margin-left" : (j === numCols ? " no-margin-right" : ""));
+                        exampleHtml += "\n\t\t\t\t<div class=\"" + classes + "\">Level Two: "+util.convert(1) +" (of " + numCols + ")</div>";
                     }
 
                     exampleHtml += "\n\t\t\t</div>";
                     exampleHtml += "\n\t\t</div>";
-                    exampleHtml += "\n\t\t<div class=\"" + "column" + i + "of" + numCols + "\">\n\t\t\t<div class=\"row\">";
+                    exampleHtml += "\n\t\t<div class=\"" + util.convert(i) + "\">\n\t\t\t<div class=\"row\">";
                     for (var j = 1; j <= numCols; j++) {
-                        var classes = "column1of" + numCols + (j === 1 ? " no-margin-left" : (j === numCols ? " no-margin-right" : ""));
+                        var classes = util.convert(1) + (j === 1 ? " no-margin-left" : (j === numCols ? " no-margin-right" : ""));
 
                         if (j == 2) {
                             classes += " insert-margin-right";
@@ -108,13 +107,13 @@
                         } else if (j > 2 && j < numCols - 1) {
                             classes += " insert-margin-left";
                         }
-                        exampleHtml += "\n\t\t\t\t<div class=\"" + classes + "\">Level 2 " + 1 + " of " + numCols + "</div>";
+                        exampleHtml += "\n\t\t\t\t<div class=\"" + classes + "\">Level Two: " + util.convert(1) + " (of " + numCols + ")</div>";
 
                     }
 
                     exampleHtml += "\n\t\t\t</div>";
                 } else {
-                    exampleHtml += "\n\t\t<div class=\"" + "column" + i + "of" + numCols + "\">" + i + " of " + numCols + "</div>";
+                    exampleHtml += "\n\t\t<div class=\"" + util.convert(i) + "\">" + util.convert(i) + " (of " + numCols + ")</div>";
                 }
                 exampleHtml += "\n\t\t</div>";
             }
@@ -141,7 +140,6 @@
         resultTxt += resultTxtInnerMargine;
 
         var singleColumnPxWidth = (contextWidth - (numCols * marginWidth)) / numCols;
-        console.log("singleColumnPxWidth", singleColumnPxWidth, contextWidth);
         //recursively create styles and demo elements
         resultTxt = "\n" + generateNestedGrid(1, nestedLevel, numCols, numCols, resultTxt, contextWidth, singleColumnPxWidth, marginWidth, null, null);
 
@@ -184,7 +182,7 @@
             if (parentClass === "") {
                 resultTxt += "\n\n/*level" + level + "*/\n";
             } else {
-                resultTxt += "\n\n/*level" + level + " under " + parentClass.replace(/[\t ]/g, "") + "*/\n";
+                resultTxt += "\n\n/*level" + level + " under " + parentClass.replace(/\t/g, "").replace(/ +/g, " ") + "*/\n";
             }
         }
 
@@ -195,7 +193,7 @@
             currColumnWidthNoMarginPerc = getRealtiveSizeFor((singleColumnPxWidth * i) + ((i) * marginWidth), contextWidth);
             currColumnWidthSingleMarginPerc = getRealtiveSizeFor((singleColumnPxWidth * i) + ((i - 0.5) * marginWidth), contextWidth);
             currColumnMarginWidthPerc = getRealtiveSizeFor(marginWidth / 2, contextWidth);
-            currColumnFullClassName = parentClass + (parentClass === "" ? "" : " ") + ".column" + i + "of" + numberColumnsTotal;
+            currColumnFullClassName = parentClass + (parentClass === "" ? "" : " ") + "." + util.convert(i);
 
             //TODO: check do do the test with CSS selectors
             //CSS3 [class^=no-margine-right],   [class^=no-margine-left],   [class^=no-margine]
@@ -207,16 +205,16 @@
 
             if (!parentDemoElement) {
                 $holderRow = ($("<div />", { "class": "row level1" }))
-                        .append($("<div />", { "class": " column column" + i + "of" + numberColumnsTotal })
+                        .append($("<div />", { "class": " column " + util.convert(i) })
                                            .css({ "width": currColumnWidthPerc + "%", "marginRight": currColumnMarginWidthPerc + "%", "marginLeft": currColumnMarginWidthPerc + "%" })
-                                           .text(i + " of " + numberColumnsTotal)
+                                           .text(util.convert(i) + " (of " + numberColumnsTotal+")")
                                );
                 //append a full row for the single item
                 if (i === 1) {
                     for (var j = 2; j <= numberColumnsTotal; j++) {
-                        $holderRow.append($("<div />", { "class": " column column" + i + "of" + numberColumnsTotal })
+                        $holderRow.append($("<div />", { "class": " column " + util.convert(i) })
                                            .css({ "width": currColumnWidthPerc + "%", "marginRight": currColumnMarginWidthPerc + "%", "marginLeft": currColumnMarginWidthPerc + "%" })
-                                           .text(i + " of " + numberColumnsTotal));
+                                           .text(util.convert(i) + " (of " + numberColumnsTotal + ")"));
 
                     }
 
@@ -226,14 +224,14 @@
                 if (i < numberColumnsToCalculate && numberColumnsToCalculate > 1) {
                     $holderRow = $("<div />", { "class": "row level" + level.toString() });
 
-                    var divLeft = $("<div>", { "class": "column column" + i + "of" + numberColumnsTotal + " no-margin-left" })
+                    var divLeft = $("<div>", { "class": "column " + util.convert(i) + " no-margin-left" })
                         .css({ "width": currColumnWidthPerc + "%", "marginRight": currColumnMarginWidthPerc + "%" })
-                        .text(i + " of " + numberColumnsTotal);
+                        .text(util.convert(i) + " (of " + numberColumnsTotal + ")");
 
                     var reveseColumnWidth = getRealtiveSizeFor((singleColumnPxWidth * (numberColumnsToCalculate - i)) + (((numberColumnsToCalculate - i) - 1) * marginWidth), contextWidth);
-                    var divRight = $("<div>", { "class": "column column" + (numberColumnsToCalculate - i) + "of" + numberColumnsTotal + " no-margin-right" })
+                    var divRight = $("<div>", { "class": "column " + util.convert(numberColumnsToCalculate - i) + " no-margin-right" })
                         .css({ "width": reveseColumnWidth + "%", "marginLeft": currColumnMarginWidthPerc + "%" })
-                        .text((numberColumnsToCalculate - i) + " of " + numberColumnsTotal);
+                        .text(util.convert(numberColumnsToCalculate - i) + " (of " + numberColumnsTotal + ")");
 
 
                     $holderRow.append(divLeft)
@@ -241,9 +239,9 @@
                               .appendTo(parentClass);
                 } else {
                     $holderRow = $("<div />", { "class": "row level" + level })
-                    .append($("<div />", { "class": "column column" + i + "of" + numberColumnsTotal + " no-margin" })
+                    .append($("<div />", { "class": "column " + util.convert(i) + " no-margin" })
                                         .css({ "width": currColumnWidthPerc + "%" })
-                                        .text(i + " of " + numberColumnsTotal)
+                                        .text(util.convert(i) + " (of " + numberColumnsTotal + ")")
                            )
                     .appendTo(parentClass);
                 }
@@ -255,7 +253,7 @@
         resultTxt += (addComments ? "/*single-margin*/\n" : "") + resultTxtSingleMargin;
         //nested children - recursive call
         for (var i = 1; i <= numberColumnsToCalculate; i++) {
-            var subparentClass = parentClass + (parentClass === "" ? "" : " ") + ".column" + i + "of" + numberColumnsTotal + " ";
+            var subparentClass = parentClass + (parentClass === "" ? "" : " ") + "." + util.convert(i) + " ";
             //currColumnWidthPx = getColumnWidthPx(numberColumnsToCalculate, i, contextWidth, marginWidth, (level === 1), (level === 1));
             currColumnWidthPx = ((singleColumnPxWidth) * i) + ((i - 1) * marginWidth);
             if (level < numLevels) {
@@ -265,11 +263,12 @@
                 resultTxt = generateNestedGrid(level + 1, numLevels, i, numberColumnsTotal, resultTxt, currColumnWidthPx, singleColumnPxWidth, marginWidth, subparentClass, $holderRow);
             }
         }
-
         return resultTxt;
 
     }
 
+
+    //init stuff
     $("#generateBtn").click(generateGrid).trigger("click");
 
 
