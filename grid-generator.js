@@ -34,6 +34,7 @@
         $ieCss = $("#IECss"),
         $exampleHtml = $("#exampleHtml"),
         addComments = true;
+        addInsertedMargines = true;
 
     function logError(msg) {
         $errorList.show();
@@ -65,6 +66,7 @@
         var nestedLevel = Number($("#nestedLevelInput").val()) || 0;
         var exampleHtml = "";
         addComments = $("#addCommentsCheck").is(":checked");
+        addInsertedMargines = $("#addInsertedMargines").is(":checked");
 
         if (!numCols && numCols < 1) {
             logError("Please specify the number of Columns (>0)");
@@ -123,21 +125,23 @@
         resultTxt += "{box-sizing: border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}\n";
 
 
-        resultTxt += "\n";
+        resultTxt += "\n";        
         resultTxtInnerMargine += "\n";
+
         for (var j = 1; j <= nestedLevel; j++) {
             var rowsSelector = "";
             for (var k = 1; k <= j; k++) {
                 rowsSelector += ".row ";
             }
-
             resultTxt += rowsSelector + ".no-margin-left, " + rowsSelector + ".no-margin {margin-left:0;}\n";
             resultTxt += rowsSelector + ".no-margin-right, " + rowsSelector + ".no-margin {margin-right:0;}\n";
             resultTxtInnerMargine += rowsSelector + ".insert-margin-left, " + rowsSelector + ".insert-margin {margin-left:0;}\n";
-            resultTxtInnerMargine += rowsSelector + ".insert-margin-right, " + rowsSelector + ".insert-margin {margin-right:0;}\n";
+            resultTxtInnerMargine += rowsSelector + ".insert-margin-right, " + rowsSelector + ".insert-margin {margin-right:0;}\n";            
         }
-
-        resultTxt += resultTxtInnerMargine;
+       
+        if(addInsertedMargines) {
+            resultTxt += resultTxtInnerMargine;
+        }
 
         var singleColumnPxWidth = (contextWidth - (numCols * marginWidth)) / numCols;
         //recursively create styles and demo elements
@@ -175,7 +179,7 @@
         var currColumnWidthFirstLastPerc;
         var currColumnWidthPx;
         var resultTxtSingleMargin = "";
-        var resultTxtNoMargin = "";
+        var resultTxtInsertMargins = "";
         var currColumnFullClassName = "";
 
         if (addComments) {
@@ -199,10 +203,11 @@
             //CSS3 [class^=no-margine-right],   [class^=no-margine-left],   [class^=no-margine]
 
             resultTxt += currColumnFullClassName + " { " + (level === 1 ? "float:left; " : "") + "width:" + currColumnWidthPerc + "%; margin-right:" + currColumnMarginWidthPerc + "%; margin-left:" + currColumnMarginWidthPerc + "%; }" + "\n";
-            resultTxtSingleMargin += currColumnFullClassName + ".insert-margin-right { width:" + currColumnWidthSingleMarginPerc + "%;" + (level === 1 ? "  margin-right:0;" : "") + " padding-right:" + currColumnMarginWidthPerc + "%; }" + "\n";
-            resultTxtSingleMargin += currColumnFullClassName + ".insert-margin-left { width:" + currColumnWidthSingleMarginPerc + "%;" + (level === 1 ? "  margin-left:0;" : "") + " padding-left:" + currColumnMarginWidthPerc + "%; }" + "\n";
-            resultTxtNoMargin += currColumnFullClassName + ".insert-margin { width:" + currColumnWidthNoMarginPerc + "%;" + (level === 1 ? " margin-right:0; margin-left:0;" : "") + " padding-left:" + currColumnMarginWidthPerc + "%;  padding-right:" + currColumnMarginWidthPerc + "%;}" + "\n";
-
+            if(addInsertedMargines){
+                resultTxtSingleMargin += currColumnFullClassName + ".insert-margin-right { width:" + currColumnWidthSingleMarginPerc + "%;" + (level === 1 ? "  margin-right:0;" : "") + " padding-right:" + currColumnMarginWidthPerc + "%; }" + "\n";
+                resultTxtSingleMargin += currColumnFullClassName + ".insert-margin-left { width:" + currColumnWidthSingleMarginPerc + "%;" + (level === 1 ? "  margin-left:0;" : "") + " padding-left:" + currColumnMarginWidthPerc + "%; }" + "\n";
+                resultTxtInsertMargins += currColumnFullClassName + ".insert-margin { width:" + currColumnWidthNoMarginPerc + "%;" + (level === 1 ? " margin-right:0; margin-left:0;" : "") + " padding-left:" + currColumnMarginWidthPerc + "%;  padding-right:" + currColumnMarginWidthPerc + "%;}" + "\n";
+            }
             if (!parentDemoElement) {
                 $holderRow = ($("<div />", { "class": "row level1" }))
                         .append($("<div />", { "class": " column " + util.convert(i) })
@@ -249,8 +254,10 @@
 
         }
 
-        resultTxt += (addComments ? "/*no-margin*/\n" : "") + resultTxtNoMargin;
-        resultTxt += (addComments ? "/*single-margin*/\n" : "") + resultTxtSingleMargin;
+        if(addInsertedMargines) {
+            resultTxt += (addComments ? "/*both margins inserted*/\n" : "") + resultTxtInsertMargins;        
+            resultTxt += (addComments ? "/*single-margin*/\n" : "") + resultTxtSingleMargin;
+        }
         //nested children - recursive call
         for (var i = 1; i <= numberColumnsToCalculate; i++) {
             var subparentClass = parentClass + (parentClass === "" ? "" : " ") + "." + util.convert(i) + " ";
