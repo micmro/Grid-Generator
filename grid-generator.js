@@ -33,8 +33,10 @@
         $resultCss = $("#resultCss"),
         $ieCss = $("#IECss"),
         $exampleHtml = $("#exampleHtml"),
-        addComments = true;
-        addInsertedMargines = true;
+        addComments = true,
+        addInsertedMargins = true,
+        addOffset = true, 
+        addSourceOrdering = true;
 
     function logError(msg) {
         $errorList.show();
@@ -57,16 +59,18 @@
         return getRealtiveSizeFor(getColumnWidthPx(numberOfColumnsTotal, numberOfColumnsSize, contextPx, marginPx, hasMarginLeft, hasMarginRight), contextPx);
     }
 
-    function generateGrid() {
-        var resultTxt = "/*fluid nested grid generator */\n"; ;
-        var resultTxtInnerMargine = "";
+    function generateGrid() {        
+        var nestedLevel = Number($("#nestedLevelInput").val()) || 0;
+        var resultTxt = "/*fluid " + (nestedLevel > 1 ? "nested " : "") + "grid */\n";
+        var resultTxtInnerMargin = ""; 
         var numCols = Number($("#numberColsInput").val()) || 0;
         var marginWidth = Number($("#marginInput").val()) || 0;
         var contextWidth = Number($("#contextWidthInput").val()) || 800;
-        var nestedLevel = Number($("#nestedLevelInput").val()) || 0;
         var exampleHtml = "";
         addComments = $("#addCommentsCheck").is(":checked");
-        addInsertedMargines = $("#addInsertedMargines").is(":checked");
+        addInsertedMargins = $("#addInsertedMargins").is(":checked");
+        addOffset = $("#addOffset").is(":checked");
+        addSourceOrdering = $("#addSourceOrdering").is(":checked");
 
         if (!numCols && numCols < 1) {
             logError("Please specify the number of Columns (>0)");
@@ -88,7 +92,6 @@
                 exampleHtml += "\n\t\t<div class=\"" + util.convert(i) + "\">" + util.convert(i) + " (of " + numCols + ")";
                 exampleHtml += "</div> <div class=\"" + util.convert(numCols - i) + "\">" + util.convert(numCols - i) + " (of " + numCols + ")</div>";
             } else {
-                console.log();
                 if (nestedLevel > 1) {
                     exampleHtml += "\n\t\t<div class=\"" + util.convert(i) + "\">\n\t\t\t<div class=\"row\">";
                     for (var j = 1; j <= numCols; j++) {
@@ -122,25 +125,25 @@
         }
         exampleHtml += "\n\t</div>\n</div>";
 
-        resultTxt += "{box-sizing: border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}\n";
+        resultTxt += "{" + (addSourceOrdering ? "position:relative; " : "") + "box-sizing: border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}\n\n";
+            
 
-
-        resultTxt += "\n";        
-        resultTxtInnerMargine += "\n";
+        resultTxtInnerMargin += "\n";
 
         for (var j = 1; j <= nestedLevel; j++) {
             var rowsSelector = "";
             for (var k = 1; k <= j; k++) {
                 rowsSelector += ".row ";
-            }
+            }            
+            resultTxt += rowsSelector + ".centered { float: none; margin: 0 auto; }\n";    
             resultTxt += rowsSelector + ".no-margin-left, " + rowsSelector + ".no-margin {margin-left:0;}\n";
             resultTxt += rowsSelector + ".no-margin-right, " + rowsSelector + ".no-margin {margin-right:0;}\n";
-            resultTxtInnerMargine += rowsSelector + ".insert-margin-left, " + rowsSelector + ".insert-margin {margin-left:0;}\n";
-            resultTxtInnerMargine += rowsSelector + ".insert-margin-right, " + rowsSelector + ".insert-margin {margin-right:0;}\n";            
+            resultTxtInnerMargin += rowsSelector + ".insert-margin-left, " + rowsSelector + ".insert-margin {margin-left:0;}\n";
+            resultTxtInnerMargin += rowsSelector + ".insert-margin-right, " + rowsSelector + ".insert-margin {margin-right:0;}\n";            
         }
        
-        if(addInsertedMargines) {
-            resultTxt += resultTxtInnerMargine;
+        if(addInsertedMargins) {
+            resultTxt += resultTxtInnerMargin;
         }
 
         var singleColumnPxWidth = (contextWidth - (numCols * marginWidth)) / numCols;
@@ -173,6 +176,8 @@
         parentClass = parentClass || "";
         var $holderRow;
         var currColumnWidthPerc;
+        var currOffsetWidthPerc;
+        var currPushWidthPerc;
         var subMarginWidthPerc;
         var currColumnWidthNoMarginPerc;
         var currColumnWidthSingleMarginPerc;
@@ -180,6 +185,8 @@
         var currColumnWidthPx;
         var resultTxtSingleMargin = "";
         var resultTxtInsertMargins = "";
+        var resultTxtOffset = "";
+        var resultTxtSourceOrdering = "";
         var currColumnFullClassName = "";
 
         if (addComments) {
@@ -197,13 +204,13 @@
             currColumnWidthNoMarginPerc = getRealtiveSizeFor((singleColumnPxWidth * i) + ((i) * marginWidth), contextWidth);
             currColumnWidthSingleMarginPerc = getRealtiveSizeFor((singleColumnPxWidth * i) + ((i - 0.5) * marginWidth), contextWidth);
             currColumnMarginWidthPerc = getRealtiveSizeFor(marginWidth / 2, contextWidth);
-            currColumnFullClassName = parentClass + (parentClass === "" ? "" : " ") + "." + util.convert(i);
+            currColumnFullClassName = parentClass + "." + util.convert(i);
 
             //TODO: check do do the test with CSS selectors
-            //CSS3 [class^=no-margine-right],   [class^=no-margine-left],   [class^=no-margine]
+            //CSS3 [class^=no-margin-right],   [class^=no-margin-left],   [class^=no-margin]
 
             resultTxt += currColumnFullClassName + " { " + (level === 1 ? "float:left; " : "") + "width:" + currColumnWidthPerc + "%; margin-right:" + currColumnMarginWidthPerc + "%; margin-left:" + currColumnMarginWidthPerc + "%; }" + "\n";
-            if(addInsertedMargines){
+            if(addInsertedMargins){
                 resultTxtSingleMargin += currColumnFullClassName + ".insert-margin-right { width:" + currColumnWidthSingleMarginPerc + "%;" + (level === 1 ? "  margin-right:0;" : "") + " padding-right:" + currColumnMarginWidthPerc + "%; }" + "\n";
                 resultTxtSingleMargin += currColumnFullClassName + ".insert-margin-left { width:" + currColumnWidthSingleMarginPerc + "%;" + (level === 1 ? "  margin-left:0;" : "") + " padding-left:" + currColumnMarginWidthPerc + "%; }" + "\n";
                 resultTxtInsertMargins += currColumnFullClassName + ".insert-margin { width:" + currColumnWidthNoMarginPerc + "%;" + (level === 1 ? " margin-right:0; margin-left:0;" : "") + " padding-left:" + currColumnMarginWidthPerc + "%;  padding-right:" + currColumnMarginWidthPerc + "%;}" + "\n";
@@ -254,19 +261,36 @@
 
         }
 
-        if(addInsertedMargines) {
+        //offset and source ordering        
+        for (var i = 1; i <= numberColumnsTotal-1; i++) {
+            if(addOffset){
+                currOffsetWidthPerc = getRealtiveSizeFor(singleColumnPxWidth * i + marginWidth * i + (level === 1 ? marginWidth / 2 : 0), contextWidth);
+                resultTxtOffset += parentClass + ".offset-by-" + util.convert(i) + " { margin-left:" + currOffsetWidthPerc + "%;}" + "\n";
+            }
+            if(addSourceOrdering){
+                currPushWidthPerc = getRealtiveSizeFor(singleColumnPxWidth * i + marginWidth * i - (level > 1 ? marginWidth / 2 : 0), contextWidth);
+                resultTxtSourceOrdering += parentClass + ".push-" + util.convert(i) + ", " + parentClass + ".pull-" + util.convert(i) + " { left:" + currPushWidthPerc + "%;}" + "\n";
+            }
+        }
+        
+
+        if(addInsertedMargins) {
             resultTxt += (addComments ? "/*both margins inserted*/\n" : "") + resultTxtInsertMargins;        
             resultTxt += (addComments ? "/*single-margin*/\n" : "") + resultTxtSingleMargin;
         }
+        if(addOffset){
+            resultTxt += (addComments ? "/*offset*/\n" : "") + resultTxtOffset;
+        }
+        if(addSourceOrdering){
+            resultTxt += (addComments ? "/*source ordering - push*/\n" : "") + resultTxtSourceOrdering;
+        }
+
         //nested children - recursive call
         for (var i = 1; i <= numberColumnsToCalculate; i++) {
             var subparentClass = parentClass + (parentClass === "" ? "" : " ") + "." + util.convert(i) + " ";
             //currColumnWidthPx = getColumnWidthPx(numberColumnsToCalculate, i, contextWidth, marginWidth, (level === 1), (level === 1));
             currColumnWidthPx = ((singleColumnPxWidth) * i) + ((i - 1) * marginWidth);
             if (level < numLevels) {
-                if (level === 2) {
-                    console.log(numberColumnsTotal, currColumnWidthPx, singleColumnPxWidth);
-                }
                 resultTxt = generateNestedGrid(level + 1, numLevels, i, numberColumnsTotal, resultTxt, currColumnWidthPx, singleColumnPxWidth, marginWidth, subparentClass, $holderRow);
             }
         }

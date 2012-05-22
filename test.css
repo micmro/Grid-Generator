@@ -1,10 +1,12 @@
-/*fluid nested grid generator */
+/*fluid nested grid */
 .gridHolder { width:100%; max-width: 1200px; }
 .row {float:left; clear:both; width:100%; }
-.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {box-sizing: border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {position:relative; box-sizing: border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
 
+.row .centered { float: none; margin: 0 auto; }
 .row .no-margin-left, .row .no-margin {margin-left:0;}
 .row .no-margin-right, .row .no-margin {margin-right:0;}
+.row .row .centered { float: none; margin: 0 auto; }
 .row .row .no-margin-left, .row .row .no-margin {margin-left:0;}
 .row .row .no-margin-right, .row .row .no-margin {margin-right:0;}
 
@@ -15,425 +17,737 @@
 
 
 /*level1*/
-.one { float:left; width:7.000000000000001%; margin-right:0.6666666666666667%; margin-left:0.6666666666666667%; }
-.two { float:left; width:15.333333333333332%; margin-right:0.6666666666666667%; margin-left:0.6666666666666667%; }
-.three { float:left; width:23.666666666666668%; margin-right:0.6666666666666667%; margin-left:0.6666666666666667%; }
-.four { float:left; width:32%; margin-right:0.6666666666666667%; margin-left:0.6666666666666667%; }
-.five { float:left; width:40.33333333333333%; margin-right:0.6666666666666667%; margin-left:0.6666666666666667%; }
-.six { float:left; width:48.66666666666667%; margin-right:0.6666666666666667%; margin-left:0.6666666666666667%; }
-.seven { float:left; width:56.99999999999999%; margin-right:0.6666666666666667%; margin-left:0.6666666666666667%; }
-.eight { float:left; width:65.33333333333333%; margin-right:0.6666666666666667%; margin-left:0.6666666666666667%; }
-.nine { float:left; width:73.66666666666667%; margin-right:0.6666666666666667%; margin-left:0.6666666666666667%; }
-.ten { float:left; width:82%; margin-right:0.6666666666666667%; margin-left:0.6666666666666667%; }
-.eleven { float:left; width:90.33333333333333%; margin-right:0.6666666666666667%; margin-left:0.6666666666666667%; }
-.twelve { float:left; width:98.66666666666667%; margin-right:0.6666666666666667%; margin-left:0.6666666666666667%; }
+.one { float:left; width:7.083333333333333%; margin-right:0.625%; margin-left:0.625%; }
+.two { float:left; width:15.416666666666668%; margin-right:0.625%; margin-left:0.625%; }
+.three { float:left; width:23.75%; margin-right:0.625%; margin-left:0.625%; }
+.four { float:left; width:32.083333333333336%; margin-right:0.625%; margin-left:0.625%; }
+.five { float:left; width:40.416666666666664%; margin-right:0.625%; margin-left:0.625%; }
+.six { float:left; width:48.75%; margin-right:0.625%; margin-left:0.625%; }
+.seven { float:left; width:57.08333333333333%; margin-right:0.625%; margin-left:0.625%; }
+.eight { float:left; width:65.41666666666667%; margin-right:0.625%; margin-left:0.625%; }
+.nine { float:left; width:73.75%; margin-right:0.625%; margin-left:0.625%; }
+.ten { float:left; width:82.08333333333333%; margin-right:0.625%; margin-left:0.625%; }
+.eleven { float:left; width:90.41666666666667%; margin-right:0.625%; margin-left:0.625%; }
+.twelve { float:left; width:98.75%; margin-right:0.625%; margin-left:0.625%; }
 /*both margins inserted*/
-.one.insert-margin { width:8.333333333333332%; margin-right:0; margin-left:0; padding-left:0.6666666666666667%;  padding-right:0.6666666666666667%;}
-.two.insert-margin { width:16.666666666666664%; margin-right:0; margin-left:0; padding-left:0.6666666666666667%;  padding-right:0.6666666666666667%;}
-.three.insert-margin { width:25%; margin-right:0; margin-left:0; padding-left:0.6666666666666667%;  padding-right:0.6666666666666667%;}
-.four.insert-margin { width:33.33333333333333%; margin-right:0; margin-left:0; padding-left:0.6666666666666667%;  padding-right:0.6666666666666667%;}
-.five.insert-margin { width:41.66666666666667%; margin-right:0; margin-left:0; padding-left:0.6666666666666667%;  padding-right:0.6666666666666667%;}
-.six.insert-margin { width:50%; margin-right:0; margin-left:0; padding-left:0.6666666666666667%;  padding-right:0.6666666666666667%;}
-.seven.insert-margin { width:58.333333333333336%; margin-right:0; margin-left:0; padding-left:0.6666666666666667%;  padding-right:0.6666666666666667%;}
-.eight.insert-margin { width:66.66666666666666%; margin-right:0; margin-left:0; padding-left:0.6666666666666667%;  padding-right:0.6666666666666667%;}
-.nine.insert-margin { width:75%; margin-right:0; margin-left:0; padding-left:0.6666666666666667%;  padding-right:0.6666666666666667%;}
-.ten.insert-margin { width:83.33333333333334%; margin-right:0; margin-left:0; padding-left:0.6666666666666667%;  padding-right:0.6666666666666667%;}
-.eleven.insert-margin { width:91.66666666666666%; margin-right:0; margin-left:0; padding-left:0.6666666666666667%;  padding-right:0.6666666666666667%;}
-.twelve.insert-margin { width:100%; margin-right:0; margin-left:0; padding-left:0.6666666666666667%;  padding-right:0.6666666666666667%;}
+.one.insert-margin { width:8.333333333333332%; margin-right:0; margin-left:0; padding-left:0.625%;  padding-right:0.625%;}
+.two.insert-margin { width:16.666666666666664%; margin-right:0; margin-left:0; padding-left:0.625%;  padding-right:0.625%;}
+.three.insert-margin { width:25%; margin-right:0; margin-left:0; padding-left:0.625%;  padding-right:0.625%;}
+.four.insert-margin { width:33.33333333333333%; margin-right:0; margin-left:0; padding-left:0.625%;  padding-right:0.625%;}
+.five.insert-margin { width:41.66666666666667%; margin-right:0; margin-left:0; padding-left:0.625%;  padding-right:0.625%;}
+.six.insert-margin { width:50%; margin-right:0; margin-left:0; padding-left:0.625%;  padding-right:0.625%;}
+.seven.insert-margin { width:58.333333333333336%; margin-right:0; margin-left:0; padding-left:0.625%;  padding-right:0.625%;}
+.eight.insert-margin { width:66.66666666666666%; margin-right:0; margin-left:0; padding-left:0.625%;  padding-right:0.625%;}
+.nine.insert-margin { width:75%; margin-right:0; margin-left:0; padding-left:0.625%;  padding-right:0.625%;}
+.ten.insert-margin { width:83.33333333333334%; margin-right:0; margin-left:0; padding-left:0.625%;  padding-right:0.625%;}
+.eleven.insert-margin { width:91.66666666666666%; margin-right:0; margin-left:0; padding-left:0.625%;  padding-right:0.625%;}
+.twelve.insert-margin { width:100%; margin-right:0; margin-left:0; padding-left:0.625%;  padding-right:0.625%;}
 /*single-margin*/
-.one.insert-margin-right { width:7.666666666666666%;  margin-right:0; padding-right:0.6666666666666667%; }
-.one.insert-margin-left { width:7.666666666666666%;  margin-left:0; padding-left:0.6666666666666667%; }
-.two.insert-margin-right { width:16%;  margin-right:0; padding-right:0.6666666666666667%; }
-.two.insert-margin-left { width:16%;  margin-left:0; padding-left:0.6666666666666667%; }
-.three.insert-margin-right { width:24.333333333333336%;  margin-right:0; padding-right:0.6666666666666667%; }
-.three.insert-margin-left { width:24.333333333333336%;  margin-left:0; padding-left:0.6666666666666667%; }
-.four.insert-margin-right { width:32.666666666666664%;  margin-right:0; padding-right:0.6666666666666667%; }
-.four.insert-margin-left { width:32.666666666666664%;  margin-left:0; padding-left:0.6666666666666667%; }
-.five.insert-margin-right { width:41%;  margin-right:0; padding-right:0.6666666666666667%; }
-.five.insert-margin-left { width:41%;  margin-left:0; padding-left:0.6666666666666667%; }
-.six.insert-margin-right { width:49.333333333333336%;  margin-right:0; padding-right:0.6666666666666667%; }
-.six.insert-margin-left { width:49.333333333333336%;  margin-left:0; padding-left:0.6666666666666667%; }
-.seven.insert-margin-right { width:57.666666666666664%;  margin-right:0; padding-right:0.6666666666666667%; }
-.seven.insert-margin-left { width:57.666666666666664%;  margin-left:0; padding-left:0.6666666666666667%; }
-.eight.insert-margin-right { width:66%;  margin-right:0; padding-right:0.6666666666666667%; }
-.eight.insert-margin-left { width:66%;  margin-left:0; padding-left:0.6666666666666667%; }
-.nine.insert-margin-right { width:74.33333333333333%;  margin-right:0; padding-right:0.6666666666666667%; }
-.nine.insert-margin-left { width:74.33333333333333%;  margin-left:0; padding-left:0.6666666666666667%; }
-.ten.insert-margin-right { width:82.66666666666667%;  margin-right:0; padding-right:0.6666666666666667%; }
-.ten.insert-margin-left { width:82.66666666666667%;  margin-left:0; padding-left:0.6666666666666667%; }
-.eleven.insert-margin-right { width:91%;  margin-right:0; padding-right:0.6666666666666667%; }
-.eleven.insert-margin-left { width:91%;  margin-left:0; padding-left:0.6666666666666667%; }
-.twelve.insert-margin-right { width:99.33333333333333%;  margin-right:0; padding-right:0.6666666666666667%; }
-.twelve.insert-margin-left { width:99.33333333333333%;  margin-left:0; padding-left:0.6666666666666667%; }
+.one.insert-margin-right { width:7.708333333333334%;  margin-right:0; padding-right:0.625%; }
+.one.insert-margin-left { width:7.708333333333334%;  margin-left:0; padding-left:0.625%; }
+.two.insert-margin-right { width:16.041666666666668%;  margin-right:0; padding-right:0.625%; }
+.two.insert-margin-left { width:16.041666666666668%;  margin-left:0; padding-left:0.625%; }
+.three.insert-margin-right { width:24.375%;  margin-right:0; padding-right:0.625%; }
+.three.insert-margin-left { width:24.375%;  margin-left:0; padding-left:0.625%; }
+.four.insert-margin-right { width:32.708333333333336%;  margin-right:0; padding-right:0.625%; }
+.four.insert-margin-left { width:32.708333333333336%;  margin-left:0; padding-left:0.625%; }
+.five.insert-margin-right { width:41.041666666666664%;  margin-right:0; padding-right:0.625%; }
+.five.insert-margin-left { width:41.041666666666664%;  margin-left:0; padding-left:0.625%; }
+.six.insert-margin-right { width:49.375%;  margin-right:0; padding-right:0.625%; }
+.six.insert-margin-left { width:49.375%;  margin-left:0; padding-left:0.625%; }
+.seven.insert-margin-right { width:57.70833333333333%;  margin-right:0; padding-right:0.625%; }
+.seven.insert-margin-left { width:57.70833333333333%;  margin-left:0; padding-left:0.625%; }
+.eight.insert-margin-right { width:66.04166666666667%;  margin-right:0; padding-right:0.625%; }
+.eight.insert-margin-left { width:66.04166666666667%;  margin-left:0; padding-left:0.625%; }
+.nine.insert-margin-right { width:74.375%;  margin-right:0; padding-right:0.625%; }
+.nine.insert-margin-left { width:74.375%;  margin-left:0; padding-left:0.625%; }
+.ten.insert-margin-right { width:82.70833333333333%;  margin-right:0; padding-right:0.625%; }
+.ten.insert-margin-left { width:82.70833333333333%;  margin-left:0; padding-left:0.625%; }
+.eleven.insert-margin-right { width:91.04166666666667%;  margin-right:0; padding-right:0.625%; }
+.eleven.insert-margin-left { width:91.04166666666667%;  margin-left:0; padding-left:0.625%; }
+.twelve.insert-margin-right { width:99.375%;  margin-right:0; padding-right:0.625%; }
+.twelve.insert-margin-left { width:99.375%;  margin-left:0; padding-left:0.625%; }
+/*offset*/
+.offset-by-one { margin-left:8.958333333333334%;}
+.offset-by-two { margin-left:17.291666666666668%;}
+.offset-by-three { margin-left:25.624999999999996%;}
+.offset-by-four { margin-left:33.958333333333336%;}
+.offset-by-five { margin-left:42.291666666666664%;}
+.offset-by-six { margin-left:50.625%;}
+.offset-by-seven { margin-left:58.958333333333336%;}
+.offset-by-eight { margin-left:67.29166666666667%;}
+.offset-by-nine { margin-left:75.625%;}
+.offset-by-ten { margin-left:83.95833333333333%;}
+.offset-by-eleven { margin-left:92.29166666666667%;}
+/*source ordering - push*/
+.push-one, .pull-one { left:8.333333333333332%;}
+.push-two, .pull-two { left:16.666666666666664%;}
+.push-three, .pull-three { left:25%;}
+.push-four, .pull-four { left:33.33333333333333%;}
+.push-five, .pull-five { left:41.66666666666667%;}
+.push-six, .pull-six { left:50%;}
+.push-seven, .pull-seven { left:58.333333333333336%;}
+.push-eight, .pull-eight { left:66.66666666666666%;}
+.push-nine, .pull-nine { left:75%;}
+.push-ten, .pull-ten { left:83.33333333333334%;}
+.push-eleven, .pull-eleven { left:91.66666666666666%;}
 
 
 /*level2 under .one */
-.one  .one { width:100%; margin-right:9.523809523809524%; margin-left:9.523809523809524%; }
+.one .one { width:100%; margin-right:8.823529411764707%; margin-left:8.823529411764707%; }
 /*both margins inserted*/
-.one  .one.insert-margin { width:119.04761904761905%; padding-left:9.523809523809524%;  padding-right:9.523809523809524%;}
+.one .one.insert-margin { width:117.64705882352942%; padding-left:8.823529411764707%;  padding-right:8.823529411764707%;}
 /*single-margin*/
-.one  .one.insert-margin-right { width:109.52380952380953%; padding-right:9.523809523809524%; }
-.one  .one.insert-margin-left { width:109.52380952380953%; padding-left:9.523809523809524%; }
+.one .one.insert-margin-right { width:108.8235294117647%; padding-right:8.823529411764707%; }
+.one .one.insert-margin-left { width:108.8235294117647%; padding-left:8.823529411764707%; }
+/*offset*/
+.one .offset-by-one { margin-left:117.64705882352942%;}
+.one .offset-by-two { margin-left:235.29411764705884%;}
+.one .offset-by-three { margin-left:352.94117647058823%;}
+.one .offset-by-four { margin-left:470.5882352941177%;}
+.one .offset-by-five { margin-left:588.2352941176471%;}
+.one .offset-by-six { margin-left:705.8823529411765%;}
+.one .offset-by-seven { margin-left:823.5294117647059%;}
+.one .offset-by-eight { margin-left:941.1764705882354%;}
+.one .offset-by-nine { margin-left:1058.8235294117646%;}
+.one .offset-by-ten { margin-left:1176.4705882352941%;}
+.one .offset-by-eleven { margin-left:1294.1176470588236%;}
+/*source ordering - push*/
+.one .push-one, .one .pull-one { left:108.8235294117647%;}
+.one .push-two, .one .pull-two { left:226.47058823529412%;}
+.one .push-three, .one .pull-three { left:344.11764705882354%;}
+.one .push-four, .one .pull-four { left:461.7647058823529%;}
+.one .push-five, .one .pull-five { left:579.4117647058823%;}
+.one .push-six, .one .pull-six { left:697.0588235294118%;}
+.one .push-seven, .one .pull-seven { left:814.7058823529411%;}
+.one .push-eight, .one .pull-eight { left:932.3529411764706%;}
+.one .push-nine, .one .pull-nine { left:1050%;}
+.one .push-ten, .one .pull-ten { left:1167.6470588235293%;}
+.one .push-eleven, .one .pull-eleven { left:1285.2941176470588%;}
 
 
 /*level2 under .two */
-.two  .one { width:45.65217391304348%; margin-right:4.3478260869565215%; margin-left:4.3478260869565215%; }
-.two  .two { width:100%; margin-right:4.3478260869565215%; margin-left:4.3478260869565215%; }
+.two .one { width:45.94594594594595%; margin-right:4.054054054054054%; margin-left:4.054054054054054%; }
+.two .two { width:100%; margin-right:4.054054054054054%; margin-left:4.054054054054054%; }
 /*both margins inserted*/
-.two  .one.insert-margin { width:54.347826086956516%; padding-left:4.3478260869565215%;  padding-right:4.3478260869565215%;}
-.two  .two.insert-margin { width:108.69565217391303%; padding-left:4.3478260869565215%;  padding-right:4.3478260869565215%;}
+.two .one.insert-margin { width:54.054054054054056%; padding-left:4.054054054054054%;  padding-right:4.054054054054054%;}
+.two .two.insert-margin { width:108.10810810810811%; padding-left:4.054054054054054%;  padding-right:4.054054054054054%;}
 /*single-margin*/
-.two  .one.insert-margin-right { width:50%; padding-right:4.3478260869565215%; }
-.two  .one.insert-margin-left { width:50%; padding-left:4.3478260869565215%; }
-.two  .two.insert-margin-right { width:104.34782608695652%; padding-right:4.3478260869565215%; }
-.two  .two.insert-margin-left { width:104.34782608695652%; padding-left:4.3478260869565215%; }
+.two .one.insert-margin-right { width:50%; padding-right:4.054054054054054%; }
+.two .one.insert-margin-left { width:50%; padding-left:4.054054054054054%; }
+.two .two.insert-margin-right { width:104.05405405405406%; padding-right:4.054054054054054%; }
+.two .two.insert-margin-left { width:104.05405405405406%; padding-left:4.054054054054054%; }
+/*offset*/
+.two .offset-by-one { margin-left:54.054054054054056%;}
+.two .offset-by-two { margin-left:108.10810810810811%;}
+.two .offset-by-three { margin-left:162.16216216216216%;}
+.two .offset-by-four { margin-left:216.21621621621622%;}
+.two .offset-by-five { margin-left:270.27027027027026%;}
+.two .offset-by-six { margin-left:324.3243243243243%;}
+.two .offset-by-seven { margin-left:378.3783783783784%;}
+.two .offset-by-eight { margin-left:432.43243243243245%;}
+.two .offset-by-nine { margin-left:486.4864864864865%;}
+.two .offset-by-ten { margin-left:540.5405405405405%;}
+.two .offset-by-eleven { margin-left:594.5945945945946%;}
+/*source ordering - push*/
+.two .push-one, .two .pull-one { left:50%;}
+.two .push-two, .two .pull-two { left:104.05405405405406%;}
+.two .push-three, .two .pull-three { left:158.10810810810813%;}
+.two .push-four, .two .pull-four { left:212.16216216216216%;}
+.two .push-five, .two .pull-five { left:266.21621621621625%;}
+.two .push-six, .two .pull-six { left:320.27027027027026%;}
+.two .push-seven, .two .pull-seven { left:374.3243243243243%;}
+.two .push-eight, .two .pull-eight { left:428.37837837837844%;}
+.two .push-nine, .two .pull-nine { left:482.43243243243245%;}
+.two .push-ten, .two .pull-ten { left:536.4864864864865%;}
+.two .push-eleven, .two .pull-eleven { left:590.5405405405405%;}
 
 
 /*level2 under .three */
-.three  .one { width:29.577464788732392%; margin-right:2.8169014084507045%; margin-left:2.8169014084507045%; }
-.three  .two { width:64.7887323943662%; margin-right:2.8169014084507045%; margin-left:2.8169014084507045%; }
-.three  .three { width:100%; margin-right:2.8169014084507045%; margin-left:2.8169014084507045%; }
+.three .one { width:29.82456140350877%; margin-right:2.631578947368421%; margin-left:2.631578947368421%; }
+.three .two { width:64.91228070175438%; margin-right:2.631578947368421%; margin-left:2.631578947368421%; }
+.three .three { width:100%; margin-right:2.631578947368421%; margin-left:2.631578947368421%; }
 /*both margins inserted*/
-.three  .one.insert-margin { width:35.2112676056338%; padding-left:2.8169014084507045%;  padding-right:2.8169014084507045%;}
-.three  .two.insert-margin { width:70.4225352112676%; padding-left:2.8169014084507045%;  padding-right:2.8169014084507045%;}
-.three  .three.insert-margin { width:105.63380281690141%; padding-left:2.8169014084507045%;  padding-right:2.8169014084507045%;}
+.three .one.insert-margin { width:35.08771929824561%; padding-left:2.631578947368421%;  padding-right:2.631578947368421%;}
+.three .two.insert-margin { width:70.17543859649122%; padding-left:2.631578947368421%;  padding-right:2.631578947368421%;}
+.three .three.insert-margin { width:105.26315789473684%; padding-left:2.631578947368421%;  padding-right:2.631578947368421%;}
 /*single-margin*/
-.three  .one.insert-margin-right { width:32.3943661971831%; padding-right:2.8169014084507045%; }
-.three  .one.insert-margin-left { width:32.3943661971831%; padding-left:2.8169014084507045%; }
-.three  .two.insert-margin-right { width:67.6056338028169%; padding-right:2.8169014084507045%; }
-.three  .two.insert-margin-left { width:67.6056338028169%; padding-left:2.8169014084507045%; }
-.three  .three.insert-margin-right { width:102.8169014084507%; padding-right:2.8169014084507045%; }
-.three  .three.insert-margin-left { width:102.8169014084507%; padding-left:2.8169014084507045%; }
+.three .one.insert-margin-right { width:32.45614035087719%; padding-right:2.631578947368421%; }
+.three .one.insert-margin-left { width:32.45614035087719%; padding-left:2.631578947368421%; }
+.three .two.insert-margin-right { width:67.54385964912281%; padding-right:2.631578947368421%; }
+.three .two.insert-margin-left { width:67.54385964912281%; padding-left:2.631578947368421%; }
+.three .three.insert-margin-right { width:102.63157894736842%; padding-right:2.631578947368421%; }
+.three .three.insert-margin-left { width:102.63157894736842%; padding-left:2.631578947368421%; }
+/*offset*/
+.three .offset-by-one { margin-left:35.08771929824561%;}
+.three .offset-by-two { margin-left:70.17543859649122%;}
+.three .offset-by-three { margin-left:105.26315789473684%;}
+.three .offset-by-four { margin-left:140.35087719298244%;}
+.three .offset-by-five { margin-left:175.43859649122805%;}
+.three .offset-by-six { margin-left:210.52631578947367%;}
+.three .offset-by-seven { margin-left:245.61403508771932%;}
+.three .offset-by-eight { margin-left:280.7017543859649%;}
+.three .offset-by-nine { margin-left:315.7894736842105%;}
+.three .offset-by-ten { margin-left:350.8771929824561%;}
+.three .offset-by-eleven { margin-left:385.96491228070175%;}
+/*source ordering - push*/
+.three .push-one, .three .pull-one { left:32.45614035087719%;}
+.three .push-two, .three .pull-two { left:67.54385964912281%;}
+.three .push-three, .three .pull-three { left:102.63157894736842%;}
+.three .push-four, .three .pull-four { left:137.71929824561403%;}
+.three .push-five, .three .pull-five { left:172.80701754385964%;}
+.three .push-six, .three .pull-six { left:207.89473684210526%;}
+.three .push-seven, .three .pull-seven { left:242.98245614035085%;}
+.three .push-eight, .three .pull-eight { left:278.0701754385965%;}
+.three .push-nine, .three .pull-nine { left:313.15789473684214%;}
+.three .push-ten, .three .pull-ten { left:348.2456140350877%;}
+.three .push-eleven, .three .pull-eleven { left:383.33333333333337%;}
 
 
 /*level2 under .four */
-.four  .one { width:21.875%; margin-right:2.083333333333333%; margin-left:2.083333333333333%; }
-.four  .two { width:47.91666666666667%; margin-right:2.083333333333333%; margin-left:2.083333333333333%; }
-.four  .three { width:73.95833333333334%; margin-right:2.083333333333333%; margin-left:2.083333333333333%; }
-.four  .four { width:100%; margin-right:2.083333333333333%; margin-left:2.083333333333333%; }
+.four .one { width:22.07792207792208%; margin-right:1.948051948051948%; margin-left:1.948051948051948%; }
+.four .two { width:48.05194805194805%; margin-right:1.948051948051948%; margin-left:1.948051948051948%; }
+.four .three { width:74.02597402597402%; margin-right:1.948051948051948%; margin-left:1.948051948051948%; }
+.four .four { width:100%; margin-right:1.948051948051948%; margin-left:1.948051948051948%; }
 /*both margins inserted*/
-.four  .one.insert-margin { width:26.041666666666668%; padding-left:2.083333333333333%;  padding-right:2.083333333333333%;}
-.four  .two.insert-margin { width:52.083333333333336%; padding-left:2.083333333333333%;  padding-right:2.083333333333333%;}
-.four  .three.insert-margin { width:78.125%; padding-left:2.083333333333333%;  padding-right:2.083333333333333%;}
-.four  .four.insert-margin { width:104.16666666666667%; padding-left:2.083333333333333%;  padding-right:2.083333333333333%;}
+.four .one.insert-margin { width:25.97402597402597%; padding-left:1.948051948051948%;  padding-right:1.948051948051948%;}
+.four .two.insert-margin { width:51.94805194805194%; padding-left:1.948051948051948%;  padding-right:1.948051948051948%;}
+.four .three.insert-margin { width:77.92207792207793%; padding-left:1.948051948051948%;  padding-right:1.948051948051948%;}
+.four .four.insert-margin { width:103.89610389610388%; padding-left:1.948051948051948%;  padding-right:1.948051948051948%;}
 /*single-margin*/
-.four  .one.insert-margin-right { width:23.958333333333336%; padding-right:2.083333333333333%; }
-.four  .one.insert-margin-left { width:23.958333333333336%; padding-left:2.083333333333333%; }
-.four  .two.insert-margin-right { width:50%; padding-right:2.083333333333333%; }
-.four  .two.insert-margin-left { width:50%; padding-left:2.083333333333333%; }
-.four  .three.insert-margin-right { width:76.04166666666666%; padding-right:2.083333333333333%; }
-.four  .three.insert-margin-left { width:76.04166666666666%; padding-left:2.083333333333333%; }
-.four  .four.insert-margin-right { width:102.08333333333333%; padding-right:2.083333333333333%; }
-.four  .four.insert-margin-left { width:102.08333333333333%; padding-left:2.083333333333333%; }
+.four .one.insert-margin-right { width:24.025974025974026%; padding-right:1.948051948051948%; }
+.four .one.insert-margin-left { width:24.025974025974026%; padding-left:1.948051948051948%; }
+.four .two.insert-margin-right { width:50%; padding-right:1.948051948051948%; }
+.four .two.insert-margin-left { width:50%; padding-left:1.948051948051948%; }
+.four .three.insert-margin-right { width:75.97402597402598%; padding-right:1.948051948051948%; }
+.four .three.insert-margin-left { width:75.97402597402598%; padding-left:1.948051948051948%; }
+.four .four.insert-margin-right { width:101.94805194805194%; padding-right:1.948051948051948%; }
+.four .four.insert-margin-left { width:101.94805194805194%; padding-left:1.948051948051948%; }
+/*offset*/
+.four .offset-by-one { margin-left:25.97402597402597%;}
+.four .offset-by-two { margin-left:51.94805194805194%;}
+.four .offset-by-three { margin-left:77.92207792207793%;}
+.four .offset-by-four { margin-left:103.89610389610388%;}
+.four .offset-by-five { margin-left:129.87012987012986%;}
+.four .offset-by-six { margin-left:155.84415584415586%;}
+.four .offset-by-seven { margin-left:181.8181818181818%;}
+.four .offset-by-eight { margin-left:207.79220779220776%;}
+.four .offset-by-nine { margin-left:233.76623376623377%;}
+.four .offset-by-ten { margin-left:259.7402597402597%;}
+.four .offset-by-eleven { margin-left:285.7142857142857%;}
+/*source ordering - push*/
+.four .push-one, .four .pull-one { left:24.025974025974026%;}
+.four .push-two, .four .pull-two { left:50%;}
+.four .push-three, .four .pull-three { left:75.97402597402598%;}
+.four .push-four, .four .pull-four { left:101.94805194805194%;}
+.four .push-five, .four .pull-five { left:127.92207792207793%;}
+.four .push-six, .four .pull-six { left:153.89610389610388%;}
+.four .push-seven, .four .pull-seven { left:179.87012987012986%;}
+.four .push-eight, .four .pull-eight { left:205.84415584415586%;}
+.four .push-nine, .four .pull-nine { left:231.81818181818184%;}
+.four .push-ten, .four .pull-ten { left:257.79220779220776%;}
+.four .push-eleven, .four .pull-eleven { left:283.76623376623377%;}
 
 
 /*level2 under .five */
-.five  .one { width:17.355371900826448%; margin-right:1.6528925619834711%; margin-left:1.6528925619834711%; }
-.five  .two { width:38.01652892561984%; margin-right:1.6528925619834711%; margin-left:1.6528925619834711%; }
-.five  .three { width:58.67768595041323%; margin-right:1.6528925619834711%; margin-left:1.6528925619834711%; }
-.five  .four { width:79.33884297520662%; margin-right:1.6528925619834711%; margin-left:1.6528925619834711%; }
-.five  .five { width:100%; margin-right:1.6528925619834711%; margin-left:1.6528925619834711%; }
+.five .one { width:17.525773195876287%; margin-right:1.5463917525773196%; margin-left:1.5463917525773196%; }
+.five .two { width:38.144329896907216%; margin-right:1.5463917525773196%; margin-left:1.5463917525773196%; }
+.five .three { width:58.76288659793815%; margin-right:1.5463917525773196%; margin-left:1.5463917525773196%; }
+.five .four { width:79.38144329896907%; margin-right:1.5463917525773196%; margin-left:1.5463917525773196%; }
+.five .five { width:100%; margin-right:1.5463917525773196%; margin-left:1.5463917525773196%; }
 /*both margins inserted*/
-.five  .one.insert-margin { width:20.66115702479339%; padding-left:1.6528925619834711%;  padding-right:1.6528925619834711%;}
-.five  .two.insert-margin { width:41.32231404958678%; padding-left:1.6528925619834711%;  padding-right:1.6528925619834711%;}
-.five  .three.insert-margin { width:61.98347107438017%; padding-left:1.6528925619834711%;  padding-right:1.6528925619834711%;}
-.five  .four.insert-margin { width:82.64462809917356%; padding-left:1.6528925619834711%;  padding-right:1.6528925619834711%;}
-.five  .five.insert-margin { width:103.30578512396693%; padding-left:1.6528925619834711%;  padding-right:1.6528925619834711%;}
+.five .one.insert-margin { width:20.618556701030926%; padding-left:1.5463917525773196%;  padding-right:1.5463917525773196%;}
+.five .two.insert-margin { width:41.23711340206185%; padding-left:1.5463917525773196%;  padding-right:1.5463917525773196%;}
+.five .three.insert-margin { width:61.855670103092784%; padding-left:1.5463917525773196%;  padding-right:1.5463917525773196%;}
+.five .four.insert-margin { width:82.4742268041237%; padding-left:1.5463917525773196%;  padding-right:1.5463917525773196%;}
+.five .five.insert-margin { width:103.09278350515463%; padding-left:1.5463917525773196%;  padding-right:1.5463917525773196%;}
 /*single-margin*/
-.five  .one.insert-margin-right { width:19.00826446280992%; padding-right:1.6528925619834711%; }
-.five  .one.insert-margin-left { width:19.00826446280992%; padding-left:1.6528925619834711%; }
-.five  .two.insert-margin-right { width:39.66942148760331%; padding-right:1.6528925619834711%; }
-.five  .two.insert-margin-left { width:39.66942148760331%; padding-left:1.6528925619834711%; }
-.five  .three.insert-margin-right { width:60.33057851239669%; padding-right:1.6528925619834711%; }
-.five  .three.insert-margin-left { width:60.33057851239669%; padding-left:1.6528925619834711%; }
-.five  .four.insert-margin-right { width:80.99173553719008%; padding-right:1.6528925619834711%; }
-.five  .four.insert-margin-left { width:80.99173553719008%; padding-left:1.6528925619834711%; }
-.five  .five.insert-margin-right { width:101.65289256198346%; padding-right:1.6528925619834711%; }
-.five  .five.insert-margin-left { width:101.65289256198346%; padding-left:1.6528925619834711%; }
+.five .one.insert-margin-right { width:19.072164948453608%; padding-right:1.5463917525773196%; }
+.five .one.insert-margin-left { width:19.072164948453608%; padding-left:1.5463917525773196%; }
+.five .two.insert-margin-right { width:39.69072164948454%; padding-right:1.5463917525773196%; }
+.five .two.insert-margin-left { width:39.69072164948454%; padding-left:1.5463917525773196%; }
+.five .three.insert-margin-right { width:60.30927835051546%; padding-right:1.5463917525773196%; }
+.five .three.insert-margin-left { width:60.30927835051546%; padding-left:1.5463917525773196%; }
+.five .four.insert-margin-right { width:80.9278350515464%; padding-right:1.5463917525773196%; }
+.five .four.insert-margin-left { width:80.9278350515464%; padding-left:1.5463917525773196%; }
+.five .five.insert-margin-right { width:101.5463917525773%; padding-right:1.5463917525773196%; }
+.five .five.insert-margin-left { width:101.5463917525773%; padding-left:1.5463917525773196%; }
+/*offset*/
+.five .offset-by-one { margin-left:20.618556701030926%;}
+.five .offset-by-two { margin-left:41.23711340206185%;}
+.five .offset-by-three { margin-left:61.855670103092784%;}
+.five .offset-by-four { margin-left:82.4742268041237%;}
+.five .offset-by-five { margin-left:103.09278350515463%;}
+.five .offset-by-six { margin-left:123.71134020618557%;}
+.five .offset-by-seven { margin-left:144.3298969072165%;}
+.five .offset-by-eight { margin-left:164.9484536082474%;}
+.five .offset-by-nine { margin-left:185.56701030927834%;}
+.five .offset-by-ten { margin-left:206.18556701030926%;}
+.five .offset-by-eleven { margin-left:226.8041237113402%;}
+/*source ordering - push*/
+.five .push-one, .five .pull-one { left:19.072164948453608%;}
+.five .push-two, .five .pull-two { left:39.69072164948454%;}
+.five .push-three, .five .pull-three { left:60.30927835051546%;}
+.five .push-four, .five .pull-four { left:80.9278350515464%;}
+.five .push-five, .five .pull-five { left:101.5463917525773%;}
+.five .push-six, .five .pull-six { left:122.16494845360826%;}
+.five .push-seven, .five .pull-seven { left:142.7835051546392%;}
+.five .push-eight, .five .pull-eight { left:163.4020618556701%;}
+.five .push-nine, .five .pull-nine { left:184.020618556701%;}
+.five .push-ten, .five .pull-ten { left:204.63917525773195%;}
+.five .push-eleven, .five .pull-eleven { left:225.2577319587629%;}
 
 
 /*level2 under .six */
-.six  .one { width:14.383561643835616%; margin-right:1.36986301369863%; margin-left:1.36986301369863%; }
-.six  .two { width:31.506849315068493%; margin-right:1.36986301369863%; margin-left:1.36986301369863%; }
-.six  .three { width:48.63013698630137%; margin-right:1.36986301369863%; margin-left:1.36986301369863%; }
-.six  .four { width:65.75342465753424%; margin-right:1.36986301369863%; margin-left:1.36986301369863%; }
-.six  .five { width:82.87671232876713%; margin-right:1.36986301369863%; margin-left:1.36986301369863%; }
-.six  .six { width:100%; margin-right:1.36986301369863%; margin-left:1.36986301369863%; }
+.six .one { width:14.529914529914532%; margin-right:1.282051282051282%; margin-left:1.282051282051282%; }
+.six .two { width:31.62393162393162%; margin-right:1.282051282051282%; margin-left:1.282051282051282%; }
+.six .three { width:48.717948717948715%; margin-right:1.282051282051282%; margin-left:1.282051282051282%; }
+.six .four { width:65.8119658119658%; margin-right:1.282051282051282%; margin-left:1.282051282051282%; }
+.six .five { width:82.90598290598291%; margin-right:1.282051282051282%; margin-left:1.282051282051282%; }
+.six .six { width:100%; margin-right:1.282051282051282%; margin-left:1.282051282051282%; }
 /*both margins inserted*/
-.six  .one.insert-margin { width:17.123287671232877%; padding-left:1.36986301369863%;  padding-right:1.36986301369863%;}
-.six  .two.insert-margin { width:34.24657534246575%; padding-left:1.36986301369863%;  padding-right:1.36986301369863%;}
-.six  .three.insert-margin { width:51.369863013698634%; padding-left:1.36986301369863%;  padding-right:1.36986301369863%;}
-.six  .four.insert-margin { width:68.4931506849315%; padding-left:1.36986301369863%;  padding-right:1.36986301369863%;}
-.six  .five.insert-margin { width:85.61643835616438%; padding-left:1.36986301369863%;  padding-right:1.36986301369863%;}
-.six  .six.insert-margin { width:102.73972602739727%; padding-left:1.36986301369863%;  padding-right:1.36986301369863%;}
+.six .one.insert-margin { width:17.094017094017094%; padding-left:1.282051282051282%;  padding-right:1.282051282051282%;}
+.six .two.insert-margin { width:34.18803418803419%; padding-left:1.282051282051282%;  padding-right:1.282051282051282%;}
+.six .three.insert-margin { width:51.28205128205128%; padding-left:1.282051282051282%;  padding-right:1.282051282051282%;}
+.six .four.insert-margin { width:68.37606837606837%; padding-left:1.282051282051282%;  padding-right:1.282051282051282%;}
+.six .five.insert-margin { width:85.47008547008546%; padding-left:1.282051282051282%;  padding-right:1.282051282051282%;}
+.six .six.insert-margin { width:102.56410256410255%; padding-left:1.282051282051282%;  padding-right:1.282051282051282%;}
 /*single-margin*/
-.six  .one.insert-margin-right { width:15.753424657534246%; padding-right:1.36986301369863%; }
-.six  .one.insert-margin-left { width:15.753424657534246%; padding-left:1.36986301369863%; }
-.six  .two.insert-margin-right { width:32.87671232876712%; padding-right:1.36986301369863%; }
-.six  .two.insert-margin-left { width:32.87671232876712%; padding-left:1.36986301369863%; }
-.six  .three.insert-margin-right { width:50%; padding-right:1.36986301369863%; }
-.six  .three.insert-margin-left { width:50%; padding-left:1.36986301369863%; }
-.six  .four.insert-margin-right { width:67.12328767123287%; padding-right:1.36986301369863%; }
-.six  .four.insert-margin-left { width:67.12328767123287%; padding-left:1.36986301369863%; }
-.six  .five.insert-margin-right { width:84.24657534246576%; padding-right:1.36986301369863%; }
-.six  .five.insert-margin-left { width:84.24657534246576%; padding-left:1.36986301369863%; }
-.six  .six.insert-margin-right { width:101.36986301369863%; padding-right:1.36986301369863%; }
-.six  .six.insert-margin-left { width:101.36986301369863%; padding-left:1.36986301369863%; }
+.six .one.insert-margin-right { width:15.81196581196581%; padding-right:1.282051282051282%; }
+.six .one.insert-margin-left { width:15.81196581196581%; padding-left:1.282051282051282%; }
+.six .two.insert-margin-right { width:32.9059829059829%; padding-right:1.282051282051282%; }
+.six .two.insert-margin-left { width:32.9059829059829%; padding-left:1.282051282051282%; }
+.six .three.insert-margin-right { width:50%; padding-right:1.282051282051282%; }
+.six .three.insert-margin-left { width:50%; padding-left:1.282051282051282%; }
+.six .four.insert-margin-right { width:67.09401709401709%; padding-right:1.282051282051282%; }
+.six .four.insert-margin-left { width:67.09401709401709%; padding-left:1.282051282051282%; }
+.six .five.insert-margin-right { width:84.1880341880342%; padding-right:1.282051282051282%; }
+.six .five.insert-margin-left { width:84.1880341880342%; padding-left:1.282051282051282%; }
+.six .six.insert-margin-right { width:101.28205128205127%; padding-right:1.282051282051282%; }
+.six .six.insert-margin-left { width:101.28205128205127%; padding-left:1.282051282051282%; }
+/*offset*/
+.six .offset-by-one { margin-left:17.094017094017094%;}
+.six .offset-by-two { margin-left:34.18803418803419%;}
+.six .offset-by-three { margin-left:51.28205128205128%;}
+.six .offset-by-four { margin-left:68.37606837606837%;}
+.six .offset-by-five { margin-left:85.47008547008546%;}
+.six .offset-by-six { margin-left:102.56410256410255%;}
+.six .offset-by-seven { margin-left:119.65811965811966%;}
+.six .offset-by-eight { margin-left:136.75213675213675%;}
+.six .offset-by-nine { margin-left:153.84615384615387%;}
+.six .offset-by-ten { margin-left:170.94017094017093%;}
+.six .offset-by-eleven { margin-left:188.03418803418802%;}
+/*source ordering - push*/
+.six .push-one, .six .pull-one { left:15.81196581196581%;}
+.six .push-two, .six .pull-two { left:32.9059829059829%;}
+.six .push-three, .six .pull-three { left:50%;}
+.six .push-four, .six .pull-four { left:67.09401709401709%;}
+.six .push-five, .six .pull-five { left:84.1880341880342%;}
+.six .push-six, .six .pull-six { left:101.28205128205127%;}
+.six .push-seven, .six .pull-seven { left:118.37606837606837%;}
+.six .push-eight, .six .pull-eight { left:135.47008547008548%;}
+.six .push-nine, .six .pull-nine { left:152.56410256410254%;}
+.six .push-ten, .six .pull-ten { left:169.65811965811966%;}
+.six .push-eleven, .six .pull-eleven { left:186.75213675213675%;}
 
 
 /*level2 under .seven */
-.seven  .one { width:12.280701754385964%; margin-right:1.1695906432748537%; margin-left:1.1695906432748537%; }
-.seven  .two { width:26.900584795321635%; margin-right:1.1695906432748537%; margin-left:1.1695906432748537%; }
-.seven  .three { width:41.52046783625731%; margin-right:1.1695906432748537%; margin-left:1.1695906432748537%; }
-.seven  .four { width:56.14035087719298%; margin-right:1.1695906432748537%; margin-left:1.1695906432748537%; }
-.seven  .five { width:70.76023391812866%; margin-right:1.1695906432748537%; margin-left:1.1695906432748537%; }
-.seven  .six { width:85.38011695906432%; margin-right:1.1695906432748537%; margin-left:1.1695906432748537%; }
-.seven  .seven { width:100%; margin-right:1.1695906432748537%; margin-left:1.1695906432748537%; }
+.seven .one { width:12.408759124087592%; margin-right:1.094890510948905%; margin-left:1.094890510948905%; }
+.seven .two { width:27.00729927007299%; margin-right:1.094890510948905%; margin-left:1.094890510948905%; }
+.seven .three { width:41.605839416058394%; margin-right:1.094890510948905%; margin-left:1.094890510948905%; }
+.seven .four { width:56.20437956204379%; margin-right:1.094890510948905%; margin-left:1.094890510948905%; }
+.seven .five { width:70.8029197080292%; margin-right:1.094890510948905%; margin-left:1.094890510948905%; }
+.seven .six { width:85.40145985401459%; margin-right:1.094890510948905%; margin-left:1.094890510948905%; }
+.seven .seven { width:100%; margin-right:1.094890510948905%; margin-left:1.094890510948905%; }
 /*both margins inserted*/
-.seven  .one.insert-margin { width:14.619883040935672%; padding-left:1.1695906432748537%;  padding-right:1.1695906432748537%;}
-.seven  .two.insert-margin { width:29.239766081871345%; padding-left:1.1695906432748537%;  padding-right:1.1695906432748537%;}
-.seven  .three.insert-margin { width:43.859649122807014%; padding-left:1.1695906432748537%;  padding-right:1.1695906432748537%;}
-.seven  .four.insert-margin { width:58.47953216374269%; padding-left:1.1695906432748537%;  padding-right:1.1695906432748537%;}
-.seven  .five.insert-margin { width:73.09941520467837%; padding-left:1.1695906432748537%;  padding-right:1.1695906432748537%;}
-.seven  .six.insert-margin { width:87.71929824561403%; padding-left:1.1695906432748537%;  padding-right:1.1695906432748537%;}
-.seven  .seven.insert-margin { width:102.3391812865497%; padding-left:1.1695906432748537%;  padding-right:1.1695906432748537%;}
+.seven .one.insert-margin { width:14.5985401459854%; padding-left:1.094890510948905%;  padding-right:1.094890510948905%;}
+.seven .two.insert-margin { width:29.1970802919708%; padding-left:1.094890510948905%;  padding-right:1.094890510948905%;}
+.seven .three.insert-margin { width:43.79562043795621%; padding-left:1.094890510948905%;  padding-right:1.094890510948905%;}
+.seven .four.insert-margin { width:58.3941605839416%; padding-left:1.094890510948905%;  padding-right:1.094890510948905%;}
+.seven .five.insert-margin { width:72.99270072992701%; padding-left:1.094890510948905%;  padding-right:1.094890510948905%;}
+.seven .six.insert-margin { width:87.59124087591242%; padding-left:1.094890510948905%;  padding-right:1.094890510948905%;}
+.seven .seven.insert-margin { width:102.18978102189782%; padding-left:1.094890510948905%;  padding-right:1.094890510948905%;}
 /*single-margin*/
-.seven  .one.insert-margin-right { width:13.450292397660817%; padding-right:1.1695906432748537%; }
-.seven  .one.insert-margin-left { width:13.450292397660817%; padding-left:1.1695906432748537%; }
-.seven  .two.insert-margin-right { width:28.07017543859649%; padding-right:1.1695906432748537%; }
-.seven  .two.insert-margin-left { width:28.07017543859649%; padding-left:1.1695906432748537%; }
-.seven  .three.insert-margin-right { width:42.69005847953216%; padding-right:1.1695906432748537%; }
-.seven  .three.insert-margin-left { width:42.69005847953216%; padding-left:1.1695906432748537%; }
-.seven  .four.insert-margin-right { width:57.30994152046783%; padding-right:1.1695906432748537%; }
-.seven  .four.insert-margin-left { width:57.30994152046783%; padding-left:1.1695906432748537%; }
-.seven  .five.insert-margin-right { width:71.9298245614035%; padding-right:1.1695906432748537%; }
-.seven  .five.insert-margin-left { width:71.9298245614035%; padding-left:1.1695906432748537%; }
-.seven  .six.insert-margin-right { width:86.54970760233918%; padding-right:1.1695906432748537%; }
-.seven  .six.insert-margin-left { width:86.54970760233918%; padding-left:1.1695906432748537%; }
-.seven  .seven.insert-margin-right { width:101.16959064327486%; padding-right:1.1695906432748537%; }
-.seven  .seven.insert-margin-left { width:101.16959064327486%; padding-left:1.1695906432748537%; }
+.seven .one.insert-margin-right { width:13.503649635036496%; padding-right:1.094890510948905%; }
+.seven .one.insert-margin-left { width:13.503649635036496%; padding-left:1.094890510948905%; }
+.seven .two.insert-margin-right { width:28.102189781021895%; padding-right:1.094890510948905%; }
+.seven .two.insert-margin-left { width:28.102189781021895%; padding-left:1.094890510948905%; }
+.seven .three.insert-margin-right { width:42.700729927007295%; padding-right:1.094890510948905%; }
+.seven .three.insert-margin-left { width:42.700729927007295%; padding-left:1.094890510948905%; }
+.seven .four.insert-margin-right { width:57.299270072992705%; padding-right:1.094890510948905%; }
+.seven .four.insert-margin-left { width:57.299270072992705%; padding-left:1.094890510948905%; }
+.seven .five.insert-margin-right { width:71.8978102189781%; padding-right:1.094890510948905%; }
+.seven .five.insert-margin-left { width:71.8978102189781%; padding-left:1.094890510948905%; }
+.seven .six.insert-margin-right { width:86.4963503649635%; padding-right:1.094890510948905%; }
+.seven .six.insert-margin-left { width:86.4963503649635%; padding-left:1.094890510948905%; }
+.seven .seven.insert-margin-right { width:101.09489051094891%; padding-right:1.094890510948905%; }
+.seven .seven.insert-margin-left { width:101.09489051094891%; padding-left:1.094890510948905%; }
+/*offset*/
+.seven .offset-by-one { margin-left:14.5985401459854%;}
+.seven .offset-by-two { margin-left:29.1970802919708%;}
+.seven .offset-by-three { margin-left:43.79562043795621%;}
+.seven .offset-by-four { margin-left:58.3941605839416%;}
+.seven .offset-by-five { margin-left:72.99270072992701%;}
+.seven .offset-by-six { margin-left:87.59124087591242%;}
+.seven .offset-by-seven { margin-left:102.18978102189782%;}
+.seven .offset-by-eight { margin-left:116.7883211678832%;}
+.seven .offset-by-nine { margin-left:131.38686131386862%;}
+.seven .offset-by-ten { margin-left:145.98540145985402%;}
+.seven .offset-by-eleven { margin-left:160.5839416058394%;}
+/*source ordering - push*/
+.seven .push-one, .seven .pull-one { left:13.503649635036496%;}
+.seven .push-two, .seven .pull-two { left:28.102189781021895%;}
+.seven .push-three, .seven .pull-three { left:42.700729927007295%;}
+.seven .push-four, .seven .pull-four { left:57.299270072992705%;}
+.seven .push-five, .seven .pull-five { left:71.8978102189781%;}
+.seven .push-six, .seven .pull-six { left:86.4963503649635%;}
+.seven .push-seven, .seven .pull-seven { left:101.09489051094891%;}
+.seven .push-eight, .seven .pull-eight { left:115.69343065693431%;}
+.seven .push-nine, .seven .pull-nine { left:130.2919708029197%;}
+.seven .push-ten, .seven .pull-ten { left:144.8905109489051%;}
+.seven .push-eleven, .seven .pull-eleven { left:159.4890510948905%;}
 
 
 /*level2 under .eight */
-.eight  .one { width:10.714285714285714%; margin-right:1.0204081632653061%; margin-left:1.0204081632653061%; }
-.eight  .two { width:23.46938775510204%; margin-right:1.0204081632653061%; margin-left:1.0204081632653061%; }
-.eight  .three { width:36.224489795918366%; margin-right:1.0204081632653061%; margin-left:1.0204081632653061%; }
-.eight  .four { width:48.97959183673469%; margin-right:1.0204081632653061%; margin-left:1.0204081632653061%; }
-.eight  .five { width:61.73469387755102%; margin-right:1.0204081632653061%; margin-left:1.0204081632653061%; }
-.eight  .six { width:74.48979591836735%; margin-right:1.0204081632653061%; margin-left:1.0204081632653061%; }
-.eight  .seven { width:87.24489795918367%; margin-right:1.0204081632653061%; margin-left:1.0204081632653061%; }
-.eight  .eight { width:100%; margin-right:1.0204081632653061%; margin-left:1.0204081632653061%; }
+.eight .one { width:10.828025477707007%; margin-right:0.9554140127388535%; margin-left:0.9554140127388535%; }
+.eight .two { width:23.56687898089172%; margin-right:0.9554140127388535%; margin-left:0.9554140127388535%; }
+.eight .three { width:36.30573248407643%; margin-right:0.9554140127388535%; margin-left:0.9554140127388535%; }
+.eight .four { width:49.044585987261144%; margin-right:0.9554140127388535%; margin-left:0.9554140127388535%; }
+.eight .five { width:61.78343949044586%; margin-right:0.9554140127388535%; margin-left:0.9554140127388535%; }
+.eight .six { width:74.52229299363057%; margin-right:0.9554140127388535%; margin-left:0.9554140127388535%; }
+.eight .seven { width:87.26114649681529%; margin-right:0.9554140127388535%; margin-left:0.9554140127388535%; }
+.eight .eight { width:100%; margin-right:0.9554140127388535%; margin-left:0.9554140127388535%; }
 /*both margins inserted*/
-.eight  .one.insert-margin { width:12.755102040816327%; padding-left:1.0204081632653061%;  padding-right:1.0204081632653061%;}
-.eight  .two.insert-margin { width:25.510204081632654%; padding-left:1.0204081632653061%;  padding-right:1.0204081632653061%;}
-.eight  .three.insert-margin { width:38.265306122448976%; padding-left:1.0204081632653061%;  padding-right:1.0204081632653061%;}
-.eight  .four.insert-margin { width:51.02040816326531%; padding-left:1.0204081632653061%;  padding-right:1.0204081632653061%;}
-.eight  .five.insert-margin { width:63.775510204081634%; padding-left:1.0204081632653061%;  padding-right:1.0204081632653061%;}
-.eight  .six.insert-margin { width:76.53061224489795%; padding-left:1.0204081632653061%;  padding-right:1.0204081632653061%;}
-.eight  .seven.insert-margin { width:89.28571428571429%; padding-left:1.0204081632653061%;  padding-right:1.0204081632653061%;}
-.eight  .eight.insert-margin { width:102.04081632653062%; padding-left:1.0204081632653061%;  padding-right:1.0204081632653061%;}
+.eight .one.insert-margin { width:12.738853503184714%; padding-left:0.9554140127388535%;  padding-right:0.9554140127388535%;}
+.eight .two.insert-margin { width:25.477707006369428%; padding-left:0.9554140127388535%;  padding-right:0.9554140127388535%;}
+.eight .three.insert-margin { width:38.21656050955414%; padding-left:0.9554140127388535%;  padding-right:0.9554140127388535%;}
+.eight .four.insert-margin { width:50.955414012738856%; padding-left:0.9554140127388535%;  padding-right:0.9554140127388535%;}
+.eight .five.insert-margin { width:63.69426751592356%; padding-left:0.9554140127388535%;  padding-right:0.9554140127388535%;}
+.eight .six.insert-margin { width:76.43312101910828%; padding-left:0.9554140127388535%;  padding-right:0.9554140127388535%;}
+.eight .seven.insert-margin { width:89.171974522293%; padding-left:0.9554140127388535%;  padding-right:0.9554140127388535%;}
+.eight .eight.insert-margin { width:101.91082802547771%; padding-left:0.9554140127388535%;  padding-right:0.9554140127388535%;}
 /*single-margin*/
-.eight  .one.insert-margin-right { width:11.73469387755102%; padding-right:1.0204081632653061%; }
-.eight  .one.insert-margin-left { width:11.73469387755102%; padding-left:1.0204081632653061%; }
-.eight  .two.insert-margin-right { width:24.489795918367346%; padding-right:1.0204081632653061%; }
-.eight  .two.insert-margin-left { width:24.489795918367346%; padding-left:1.0204081632653061%; }
-.eight  .three.insert-margin-right { width:37.244897959183675%; padding-right:1.0204081632653061%; }
-.eight  .three.insert-margin-left { width:37.244897959183675%; padding-left:1.0204081632653061%; }
-.eight  .four.insert-margin-right { width:50%; padding-right:1.0204081632653061%; }
-.eight  .four.insert-margin-left { width:50%; padding-left:1.0204081632653061%; }
-.eight  .five.insert-margin-right { width:62.755102040816325%; padding-right:1.0204081632653061%; }
-.eight  .five.insert-margin-left { width:62.755102040816325%; padding-left:1.0204081632653061%; }
-.eight  .six.insert-margin-right { width:75.51020408163265%; padding-right:1.0204081632653061%; }
-.eight  .six.insert-margin-left { width:75.51020408163265%; padding-left:1.0204081632653061%; }
-.eight  .seven.insert-margin-right { width:88.26530612244898%; padding-right:1.0204081632653061%; }
-.eight  .seven.insert-margin-left { width:88.26530612244898%; padding-left:1.0204081632653061%; }
-.eight  .eight.insert-margin-right { width:101.0204081632653%; padding-right:1.0204081632653061%; }
-.eight  .eight.insert-margin-left { width:101.0204081632653%; padding-left:1.0204081632653061%; }
+.eight .one.insert-margin-right { width:11.78343949044586%; padding-right:0.9554140127388535%; }
+.eight .one.insert-margin-left { width:11.78343949044586%; padding-left:0.9554140127388535%; }
+.eight .two.insert-margin-right { width:24.522292993630572%; padding-right:0.9554140127388535%; }
+.eight .two.insert-margin-left { width:24.522292993630572%; padding-left:0.9554140127388535%; }
+.eight .three.insert-margin-right { width:37.261146496815286%; padding-right:0.9554140127388535%; }
+.eight .three.insert-margin-left { width:37.261146496815286%; padding-left:0.9554140127388535%; }
+.eight .four.insert-margin-right { width:50%; padding-right:0.9554140127388535%; }
+.eight .four.insert-margin-left { width:50%; padding-left:0.9554140127388535%; }
+.eight .five.insert-margin-right { width:62.738853503184714%; padding-right:0.9554140127388535%; }
+.eight .five.insert-margin-left { width:62.738853503184714%; padding-left:0.9554140127388535%; }
+.eight .six.insert-margin-right { width:75.47770700636943%; padding-right:0.9554140127388535%; }
+.eight .six.insert-margin-left { width:75.47770700636943%; padding-left:0.9554140127388535%; }
+.eight .seven.insert-margin-right { width:88.21656050955414%; padding-right:0.9554140127388535%; }
+.eight .seven.insert-margin-left { width:88.21656050955414%; padding-left:0.9554140127388535%; }
+.eight .eight.insert-margin-right { width:100.95541401273887%; padding-right:0.9554140127388535%; }
+.eight .eight.insert-margin-left { width:100.95541401273887%; padding-left:0.9554140127388535%; }
+/*offset*/
+.eight .offset-by-one { margin-left:12.738853503184714%;}
+.eight .offset-by-two { margin-left:25.477707006369428%;}
+.eight .offset-by-three { margin-left:38.21656050955414%;}
+.eight .offset-by-four { margin-left:50.955414012738856%;}
+.eight .offset-by-five { margin-left:63.69426751592356%;}
+.eight .offset-by-six { margin-left:76.43312101910828%;}
+.eight .offset-by-seven { margin-left:89.171974522293%;}
+.eight .offset-by-eight { margin-left:101.91082802547771%;}
+.eight .offset-by-nine { margin-left:114.64968152866241%;}
+.eight .offset-by-ten { margin-left:127.38853503184713%;}
+.eight .offset-by-eleven { margin-left:140.12738853503183%;}
+/*source ordering - push*/
+.eight .push-one, .eight .pull-one { left:11.78343949044586%;}
+.eight .push-two, .eight .pull-two { left:24.522292993630572%;}
+.eight .push-three, .eight .pull-three { left:37.261146496815286%;}
+.eight .push-four, .eight .pull-four { left:50%;}
+.eight .push-five, .eight .pull-five { left:62.738853503184714%;}
+.eight .push-six, .eight .pull-six { left:75.47770700636943%;}
+.eight .push-seven, .eight .pull-seven { left:88.21656050955414%;}
+.eight .push-eight, .eight .pull-eight { left:100.95541401273887%;}
+.eight .push-nine, .eight .pull-nine { left:113.69426751592357%;}
+.eight .push-ten, .eight .pull-ten { left:126.43312101910828%;}
+.eight .push-eleven, .eight .pull-eleven { left:139.171974522293%;}
 
 
 /*level2 under .nine */
-.nine  .one { width:9.502262443438914%; margin-right:0.904977375565611%; margin-left:0.904977375565611%; }
-.nine  .two { width:20.81447963800905%; margin-right:0.904977375565611%; margin-left:0.904977375565611%; }
-.nine  .three { width:32.126696832579185%; margin-right:0.904977375565611%; margin-left:0.904977375565611%; }
-.nine  .four { width:43.43891402714932%; margin-right:0.904977375565611%; margin-left:0.904977375565611%; }
-.nine  .five { width:54.75113122171946%; margin-right:0.904977375565611%; margin-left:0.904977375565611%; }
-.nine  .six { width:66.06334841628959%; margin-right:0.904977375565611%; margin-left:0.904977375565611%; }
-.nine  .seven { width:77.37556561085974%; margin-right:0.904977375565611%; margin-left:0.904977375565611%; }
-.nine  .eight { width:88.68778280542986%; margin-right:0.904977375565611%; margin-left:0.904977375565611%; }
-.nine  .nine { width:100%; margin-right:0.904977375565611%; margin-left:0.904977375565611%; }
+.nine .one { width:9.6045197740113%; margin-right:0.847457627118644%; margin-left:0.847457627118644%; }
+.nine .two { width:20.903954802259886%; margin-right:0.847457627118644%; margin-left:0.847457627118644%; }
+.nine .three { width:32.20338983050847%; margin-right:0.847457627118644%; margin-left:0.847457627118644%; }
+.nine .four { width:43.50282485875706%; margin-right:0.847457627118644%; margin-left:0.847457627118644%; }
+.nine .five { width:54.80225988700565%; margin-right:0.847457627118644%; margin-left:0.847457627118644%; }
+.nine .six { width:66.10169491525424%; margin-right:0.847457627118644%; margin-left:0.847457627118644%; }
+.nine .seven { width:77.40112994350282%; margin-right:0.847457627118644%; margin-left:0.847457627118644%; }
+.nine .eight { width:88.70056497175142%; margin-right:0.847457627118644%; margin-left:0.847457627118644%; }
+.nine .nine { width:100%; margin-right:0.847457627118644%; margin-left:0.847457627118644%; }
 /*both margins inserted*/
-.nine  .one.insert-margin { width:11.312217194570136%; padding-left:0.904977375565611%;  padding-right:0.904977375565611%;}
-.nine  .two.insert-margin { width:22.624434389140273%; padding-left:0.904977375565611%;  padding-right:0.904977375565611%;}
-.nine  .three.insert-margin { width:33.93665158371041%; padding-left:0.904977375565611%;  padding-right:0.904977375565611%;}
-.nine  .four.insert-margin { width:45.248868778280546%; padding-left:0.904977375565611%;  padding-right:0.904977375565611%;}
-.nine  .five.insert-margin { width:56.56108597285068%; padding-left:0.904977375565611%;  padding-right:0.904977375565611%;}
-.nine  .six.insert-margin { width:67.87330316742081%; padding-left:0.904977375565611%;  padding-right:0.904977375565611%;}
-.nine  .seven.insert-margin { width:79.18552036199095%; padding-left:0.904977375565611%;  padding-right:0.904977375565611%;}
-.nine  .eight.insert-margin { width:90.49773755656109%; padding-left:0.904977375565611%;  padding-right:0.904977375565611%;}
-.nine  .nine.insert-margin { width:101.80995475113122%; padding-left:0.904977375565611%;  padding-right:0.904977375565611%;}
+.nine .one.insert-margin { width:11.299435028248588%; padding-left:0.847457627118644%;  padding-right:0.847457627118644%;}
+.nine .two.insert-margin { width:22.598870056497177%; padding-left:0.847457627118644%;  padding-right:0.847457627118644%;}
+.nine .three.insert-margin { width:33.89830508474576%; padding-left:0.847457627118644%;  padding-right:0.847457627118644%;}
+.nine .four.insert-margin { width:45.19774011299435%; padding-left:0.847457627118644%;  padding-right:0.847457627118644%;}
+.nine .five.insert-margin { width:56.49717514124294%; padding-left:0.847457627118644%;  padding-right:0.847457627118644%;}
+.nine .six.insert-margin { width:67.79661016949152%; padding-left:0.847457627118644%;  padding-right:0.847457627118644%;}
+.nine .seven.insert-margin { width:79.09604519774011%; padding-left:0.847457627118644%;  padding-right:0.847457627118644%;}
+.nine .eight.insert-margin { width:90.3954802259887%; padding-left:0.847457627118644%;  padding-right:0.847457627118644%;}
+.nine .nine.insert-margin { width:101.69491525423729%; padding-left:0.847457627118644%;  padding-right:0.847457627118644%;}
 /*single-margin*/
-.nine  .one.insert-margin-right { width:10.407239819004525%; padding-right:0.904977375565611%; }
-.nine  .one.insert-margin-left { width:10.407239819004525%; padding-left:0.904977375565611%; }
-.nine  .two.insert-margin-right { width:21.71945701357466%; padding-right:0.904977375565611%; }
-.nine  .two.insert-margin-left { width:21.71945701357466%; padding-left:0.904977375565611%; }
-.nine  .three.insert-margin-right { width:33.03167420814479%; padding-right:0.904977375565611%; }
-.nine  .three.insert-margin-left { width:33.03167420814479%; padding-left:0.904977375565611%; }
-.nine  .four.insert-margin-right { width:44.34389140271493%; padding-right:0.904977375565611%; }
-.nine  .four.insert-margin-left { width:44.34389140271493%; padding-left:0.904977375565611%; }
-.nine  .five.insert-margin-right { width:55.65610859728507%; padding-right:0.904977375565611%; }
-.nine  .five.insert-margin-left { width:55.65610859728507%; padding-left:0.904977375565611%; }
-.nine  .six.insert-margin-right { width:66.9683257918552%; padding-right:0.904977375565611%; }
-.nine  .six.insert-margin-left { width:66.9683257918552%; padding-left:0.904977375565611%; }
-.nine  .seven.insert-margin-right { width:78.28054298642535%; padding-right:0.904977375565611%; }
-.nine  .seven.insert-margin-left { width:78.28054298642535%; padding-left:0.904977375565611%; }
-.nine  .eight.insert-margin-right { width:89.59276018099548%; padding-right:0.904977375565611%; }
-.nine  .eight.insert-margin-left { width:89.59276018099548%; padding-left:0.904977375565611%; }
-.nine  .nine.insert-margin-right { width:100.90497737556561%; padding-right:0.904977375565611%; }
-.nine  .nine.insert-margin-left { width:100.90497737556561%; padding-left:0.904977375565611%; }
+.nine .one.insert-margin-right { width:10.451977401129943%; padding-right:0.847457627118644%; }
+.nine .one.insert-margin-left { width:10.451977401129943%; padding-left:0.847457627118644%; }
+.nine .two.insert-margin-right { width:21.75141242937853%; padding-right:0.847457627118644%; }
+.nine .two.insert-margin-left { width:21.75141242937853%; padding-left:0.847457627118644%; }
+.nine .three.insert-margin-right { width:33.05084745762712%; padding-right:0.847457627118644%; }
+.nine .three.insert-margin-left { width:33.05084745762712%; padding-left:0.847457627118644%; }
+.nine .four.insert-margin-right { width:44.35028248587571%; padding-right:0.847457627118644%; }
+.nine .four.insert-margin-left { width:44.35028248587571%; padding-left:0.847457627118644%; }
+.nine .five.insert-margin-right { width:55.6497175141243%; padding-right:0.847457627118644%; }
+.nine .five.insert-margin-left { width:55.6497175141243%; padding-left:0.847457627118644%; }
+.nine .six.insert-margin-right { width:66.94915254237289%; padding-right:0.847457627118644%; }
+.nine .six.insert-margin-left { width:66.94915254237289%; padding-left:0.847457627118644%; }
+.nine .seven.insert-margin-right { width:78.24858757062147%; padding-right:0.847457627118644%; }
+.nine .seven.insert-margin-left { width:78.24858757062147%; padding-left:0.847457627118644%; }
+.nine .eight.insert-margin-right { width:89.54802259887006%; padding-right:0.847457627118644%; }
+.nine .eight.insert-margin-left { width:89.54802259887006%; padding-left:0.847457627118644%; }
+.nine .nine.insert-margin-right { width:100.84745762711864%; padding-right:0.847457627118644%; }
+.nine .nine.insert-margin-left { width:100.84745762711864%; padding-left:0.847457627118644%; }
+/*offset*/
+.nine .offset-by-one { margin-left:11.299435028248588%;}
+.nine .offset-by-two { margin-left:22.598870056497177%;}
+.nine .offset-by-three { margin-left:33.89830508474576%;}
+.nine .offset-by-four { margin-left:45.19774011299435%;}
+.nine .offset-by-five { margin-left:56.49717514124294%;}
+.nine .offset-by-six { margin-left:67.79661016949152%;}
+.nine .offset-by-seven { margin-left:79.09604519774011%;}
+.nine .offset-by-eight { margin-left:90.3954802259887%;}
+.nine .offset-by-nine { margin-left:101.69491525423729%;}
+.nine .offset-by-ten { margin-left:112.99435028248588%;}
+.nine .offset-by-eleven { margin-left:124.29378531073448%;}
+/*source ordering - push*/
+.nine .push-one, .nine .pull-one { left:10.451977401129943%;}
+.nine .push-two, .nine .pull-two { left:21.75141242937853%;}
+.nine .push-three, .nine .pull-three { left:33.05084745762712%;}
+.nine .push-four, .nine .pull-four { left:44.35028248587571%;}
+.nine .push-five, .nine .pull-five { left:55.6497175141243%;}
+.nine .push-six, .nine .pull-six { left:66.94915254237289%;}
+.nine .push-seven, .nine .pull-seven { left:78.24858757062147%;}
+.nine .push-eight, .nine .pull-eight { left:89.54802259887006%;}
+.nine .push-nine, .nine .pull-nine { left:100.84745762711864%;}
+.nine .push-ten, .nine .pull-ten { left:112.14689265536724%;}
+.nine .push-eleven, .nine .pull-eleven { left:123.4463276836158%;}
 
 
 /*level2 under .ten */
-.ten  .one { width:8.536585365853659%; margin-right:0.8130081300813009%; margin-left:0.8130081300813009%; }
-.ten  .two { width:18.69918699186992%; margin-right:0.8130081300813009%; margin-left:0.8130081300813009%; }
-.ten  .three { width:28.86178861788618%; margin-right:0.8130081300813009%; margin-left:0.8130081300813009%; }
-.ten  .four { width:39.02439024390244%; margin-right:0.8130081300813009%; margin-left:0.8130081300813009%; }
-.ten  .five { width:49.1869918699187%; margin-right:0.8130081300813009%; margin-left:0.8130081300813009%; }
-.ten  .six { width:59.34959349593496%; margin-right:0.8130081300813009%; margin-left:0.8130081300813009%; }
-.ten  .seven { width:69.51219512195121%; margin-right:0.8130081300813009%; margin-left:0.8130081300813009%; }
-.ten  .eight { width:79.67479674796748%; margin-right:0.8130081300813009%; margin-left:0.8130081300813009%; }
-.ten  .nine { width:89.83739837398373%; margin-right:0.8130081300813009%; margin-left:0.8130081300813009%; }
-.ten  .ten { width:100%; margin-right:0.8130081300813009%; margin-left:0.8130081300813009%; }
+.ten .one { width:8.629441624365482%; margin-right:0.7614213197969544%; margin-left:0.7614213197969544%; }
+.ten .two { width:18.781725888324875%; margin-right:0.7614213197969544%; margin-left:0.7614213197969544%; }
+.ten .three { width:28.934010152284262%; margin-right:0.7614213197969544%; margin-left:0.7614213197969544%; }
+.ten .four { width:39.08629441624365%; margin-right:0.7614213197969544%; margin-left:0.7614213197969544%; }
+.ten .five { width:49.23857868020304%; margin-right:0.7614213197969544%; margin-left:0.7614213197969544%; }
+.ten .six { width:59.390862944162436%; margin-right:0.7614213197969544%; margin-left:0.7614213197969544%; }
+.ten .seven { width:69.54314720812182%; margin-right:0.7614213197969544%; margin-left:0.7614213197969544%; }
+.ten .eight { width:79.69543147208121%; margin-right:0.7614213197969544%; margin-left:0.7614213197969544%; }
+.ten .nine { width:89.84771573604061%; margin-right:0.7614213197969544%; margin-left:0.7614213197969544%; }
+.ten .ten { width:100%; margin-right:0.7614213197969544%; margin-left:0.7614213197969544%; }
 /*both margins inserted*/
-.ten  .one.insert-margin { width:10.16260162601626%; padding-left:0.8130081300813009%;  padding-right:0.8130081300813009%;}
-.ten  .two.insert-margin { width:20.32520325203252%; padding-left:0.8130081300813009%;  padding-right:0.8130081300813009%;}
-.ten  .three.insert-margin { width:30.48780487804878%; padding-left:0.8130081300813009%;  padding-right:0.8130081300813009%;}
-.ten  .four.insert-margin { width:40.65040650406504%; padding-left:0.8130081300813009%;  padding-right:0.8130081300813009%;}
-.ten  .five.insert-margin { width:50.81300813008131%; padding-left:0.8130081300813009%;  padding-right:0.8130081300813009%;}
-.ten  .six.insert-margin { width:60.97560975609756%; padding-left:0.8130081300813009%;  padding-right:0.8130081300813009%;}
-.ten  .seven.insert-margin { width:71.13821138211382%; padding-left:0.8130081300813009%;  padding-right:0.8130081300813009%;}
-.ten  .eight.insert-margin { width:81.30081300813008%; padding-left:0.8130081300813009%;  padding-right:0.8130081300813009%;}
-.ten  .nine.insert-margin { width:91.46341463414635%; padding-left:0.8130081300813009%;  padding-right:0.8130081300813009%;}
-.ten  .ten.insert-margin { width:101.62601626016261%; padding-left:0.8130081300813009%;  padding-right:0.8130081300813009%;}
+.ten .one.insert-margin { width:10.152284263959391%; padding-left:0.7614213197969544%;  padding-right:0.7614213197969544%;}
+.ten .two.insert-margin { width:20.304568527918782%; padding-left:0.7614213197969544%;  padding-right:0.7614213197969544%;}
+.ten .three.insert-margin { width:30.456852791878177%; padding-left:0.7614213197969544%;  padding-right:0.7614213197969544%;}
+.ten .four.insert-margin { width:40.609137055837564%; padding-left:0.7614213197969544%;  padding-right:0.7614213197969544%;}
+.ten .five.insert-margin { width:50.76142131979695%; padding-left:0.7614213197969544%;  padding-right:0.7614213197969544%;}
+.ten .six.insert-margin { width:60.913705583756354%; padding-left:0.7614213197969544%;  padding-right:0.7614213197969544%;}
+.ten .seven.insert-margin { width:71.06598984771574%; padding-left:0.7614213197969544%;  padding-right:0.7614213197969544%;}
+.ten .eight.insert-margin { width:81.21827411167513%; padding-left:0.7614213197969544%;  padding-right:0.7614213197969544%;}
+.ten .nine.insert-margin { width:91.37055837563452%; padding-left:0.7614213197969544%;  padding-right:0.7614213197969544%;}
+.ten .ten.insert-margin { width:101.5228426395939%; padding-left:0.7614213197969544%;  padding-right:0.7614213197969544%;}
 /*single-margin*/
-.ten  .one.insert-margin-right { width:9.34959349593496%; padding-right:0.8130081300813009%; }
-.ten  .one.insert-margin-left { width:9.34959349593496%; padding-left:0.8130081300813009%; }
-.ten  .two.insert-margin-right { width:19.51219512195122%; padding-right:0.8130081300813009%; }
-.ten  .two.insert-margin-left { width:19.51219512195122%; padding-left:0.8130081300813009%; }
-.ten  .three.insert-margin-right { width:29.67479674796748%; padding-right:0.8130081300813009%; }
-.ten  .three.insert-margin-left { width:29.67479674796748%; padding-left:0.8130081300813009%; }
-.ten  .four.insert-margin-right { width:39.83739837398374%; padding-right:0.8130081300813009%; }
-.ten  .four.insert-margin-left { width:39.83739837398374%; padding-left:0.8130081300813009%; }
-.ten  .five.insert-margin-right { width:50%; padding-right:0.8130081300813009%; }
-.ten  .five.insert-margin-left { width:50%; padding-left:0.8130081300813009%; }
-.ten  .six.insert-margin-right { width:60.16260162601627%; padding-right:0.8130081300813009%; }
-.ten  .six.insert-margin-left { width:60.16260162601627%; padding-left:0.8130081300813009%; }
-.ten  .seven.insert-margin-right { width:70.32520325203252%; padding-right:0.8130081300813009%; }
-.ten  .seven.insert-margin-left { width:70.32520325203252%; padding-left:0.8130081300813009%; }
-.ten  .eight.insert-margin-right { width:80.48780487804879%; padding-right:0.8130081300813009%; }
-.ten  .eight.insert-margin-left { width:80.48780487804879%; padding-left:0.8130081300813009%; }
-.ten  .nine.insert-margin-right { width:90.65040650406505%; padding-right:0.8130081300813009%; }
-.ten  .nine.insert-margin-left { width:90.65040650406505%; padding-left:0.8130081300813009%; }
-.ten  .ten.insert-margin-right { width:100.8130081300813%; padding-right:0.8130081300813009%; }
-.ten  .ten.insert-margin-left { width:100.8130081300813%; padding-left:0.8130081300813009%; }
+.ten .one.insert-margin-right { width:9.390862944162437%; padding-right:0.7614213197969544%; }
+.ten .one.insert-margin-left { width:9.390862944162437%; padding-left:0.7614213197969544%; }
+.ten .two.insert-margin-right { width:19.543147208121827%; padding-right:0.7614213197969544%; }
+.ten .two.insert-margin-left { width:19.543147208121827%; padding-left:0.7614213197969544%; }
+.ten .three.insert-margin-right { width:29.695431472081218%; padding-right:0.7614213197969544%; }
+.ten .three.insert-margin-left { width:29.695431472081218%; padding-left:0.7614213197969544%; }
+.ten .four.insert-margin-right { width:39.847715736040605%; padding-right:0.7614213197969544%; }
+.ten .four.insert-margin-left { width:39.847715736040605%; padding-left:0.7614213197969544%; }
+.ten .five.insert-margin-right { width:50%; padding-right:0.7614213197969544%; }
+.ten .five.insert-margin-left { width:50%; padding-left:0.7614213197969544%; }
+.ten .six.insert-margin-right { width:60.15228426395939%; padding-right:0.7614213197969544%; }
+.ten .six.insert-margin-left { width:60.15228426395939%; padding-left:0.7614213197969544%; }
+.ten .seven.insert-margin-right { width:70.30456852791879%; padding-right:0.7614213197969544%; }
+.ten .seven.insert-margin-left { width:70.30456852791879%; padding-left:0.7614213197969544%; }
+.ten .eight.insert-margin-right { width:80.45685279187818%; padding-right:0.7614213197969544%; }
+.ten .eight.insert-margin-left { width:80.45685279187818%; padding-left:0.7614213197969544%; }
+.ten .nine.insert-margin-right { width:90.60913705583756%; padding-right:0.7614213197969544%; }
+.ten .nine.insert-margin-left { width:90.60913705583756%; padding-left:0.7614213197969544%; }
+.ten .ten.insert-margin-right { width:100.76142131979695%; padding-right:0.7614213197969544%; }
+.ten .ten.insert-margin-left { width:100.76142131979695%; padding-left:0.7614213197969544%; }
+/*offset*/
+.ten .offset-by-one { margin-left:10.152284263959391%;}
+.ten .offset-by-two { margin-left:20.304568527918782%;}
+.ten .offset-by-three { margin-left:30.456852791878177%;}
+.ten .offset-by-four { margin-left:40.609137055837564%;}
+.ten .offset-by-five { margin-left:50.76142131979695%;}
+.ten .offset-by-six { margin-left:60.913705583756354%;}
+.ten .offset-by-seven { margin-left:71.06598984771574%;}
+.ten .offset-by-eight { margin-left:81.21827411167513%;}
+.ten .offset-by-nine { margin-left:91.37055837563452%;}
+.ten .offset-by-ten { margin-left:101.5228426395939%;}
+.ten .offset-by-eleven { margin-left:111.6751269035533%;}
+/*source ordering - push*/
+.ten .push-one, .ten .pull-one { left:9.390862944162437%;}
+.ten .push-two, .ten .pull-two { left:19.543147208121827%;}
+.ten .push-three, .ten .pull-three { left:29.695431472081218%;}
+.ten .push-four, .ten .pull-four { left:39.847715736040605%;}
+.ten .push-five, .ten .pull-five { left:50%;}
+.ten .push-six, .ten .pull-six { left:60.15228426395939%;}
+.ten .push-seven, .ten .pull-seven { left:70.30456852791879%;}
+.ten .push-eight, .ten .pull-eight { left:80.45685279187818%;}
+.ten .push-nine, .ten .pull-nine { left:90.60913705583756%;}
+.ten .push-ten, .ten .pull-ten { left:100.76142131979695%;}
+.ten .push-eleven, .ten .pull-eleven { left:110.91370558375635%;}
 
 
 /*level2 under .eleven */
-.eleven  .one { width:7.7490774907749085%; margin-right:0.7380073800738007%; margin-left:0.7380073800738007%; }
-.eleven  .two { width:16.974169741697416%; margin-right:0.7380073800738007%; margin-left:0.7380073800738007%; }
-.eleven  .three { width:26.199261992619927%; margin-right:0.7380073800738007%; margin-left:0.7380073800738007%; }
-.eleven  .four { width:35.42435424354243%; margin-right:0.7380073800738007%; margin-left:0.7380073800738007%; }
-.eleven  .five { width:44.64944649446495%; margin-right:0.7380073800738007%; margin-left:0.7380073800738007%; }
-.eleven  .six { width:53.874538745387454%; margin-right:0.7380073800738007%; margin-left:0.7380073800738007%; }
-.eleven  .seven { width:63.09963099630996%; margin-right:0.7380073800738007%; margin-left:0.7380073800738007%; }
-.eleven  .eight { width:72.32472324723247%; margin-right:0.7380073800738007%; margin-left:0.7380073800738007%; }
-.eleven  .nine { width:81.54981549815497%; margin-right:0.7380073800738007%; margin-left:0.7380073800738007%; }
-.eleven  .ten { width:90.7749077490775%; margin-right:0.7380073800738007%; margin-left:0.7380073800738007%; }
-.eleven  .eleven { width:100%; margin-right:0.7380073800738007%; margin-left:0.7380073800738007%; }
+.eleven .one { width:7.834101382488479%; margin-right:0.6912442396313364%; margin-left:0.6912442396313364%; }
+.eleven .two { width:17.050691244239633%; margin-right:0.6912442396313364%; margin-left:0.6912442396313364%; }
+.eleven .three { width:26.26728110599078%; margin-right:0.6912442396313364%; margin-left:0.6912442396313364%; }
+.eleven .four { width:35.483870967741936%; margin-right:0.6912442396313364%; margin-left:0.6912442396313364%; }
+.eleven .five { width:44.70046082949309%; margin-right:0.6912442396313364%; margin-left:0.6912442396313364%; }
+.eleven .six { width:53.91705069124424%; margin-right:0.6912442396313364%; margin-left:0.6912442396313364%; }
+.eleven .seven { width:63.133640552995395%; margin-right:0.6912442396313364%; margin-left:0.6912442396313364%; }
+.eleven .eight { width:72.35023041474655%; margin-right:0.6912442396313364%; margin-left:0.6912442396313364%; }
+.eleven .nine { width:81.5668202764977%; margin-right:0.6912442396313364%; margin-left:0.6912442396313364%; }
+.eleven .ten { width:90.78341013824884%; margin-right:0.6912442396313364%; margin-left:0.6912442396313364%; }
+.eleven .eleven { width:100%; margin-right:0.6912442396313364%; margin-left:0.6912442396313364%; }
 /*both margins inserted*/
-.eleven  .one.insert-margin { width:9.22509225092251%; padding-left:0.7380073800738007%;  padding-right:0.7380073800738007%;}
-.eleven  .two.insert-margin { width:18.45018450184502%; padding-left:0.7380073800738007%;  padding-right:0.7380073800738007%;}
-.eleven  .three.insert-margin { width:27.67527675276753%; padding-left:0.7380073800738007%;  padding-right:0.7380073800738007%;}
-.eleven  .four.insert-margin { width:36.90036900369004%; padding-left:0.7380073800738007%;  padding-right:0.7380073800738007%;}
-.eleven  .five.insert-margin { width:46.125461254612546%; padding-left:0.7380073800738007%;  padding-right:0.7380073800738007%;}
-.eleven  .six.insert-margin { width:55.35055350553506%; padding-left:0.7380073800738007%;  padding-right:0.7380073800738007%;}
-.eleven  .seven.insert-margin { width:64.57564575645756%; padding-left:0.7380073800738007%;  padding-right:0.7380073800738007%;}
-.eleven  .eight.insert-margin { width:73.80073800738008%; padding-left:0.7380073800738007%;  padding-right:0.7380073800738007%;}
-.eleven  .nine.insert-margin { width:83.02583025830258%; padding-left:0.7380073800738007%;  padding-right:0.7380073800738007%;}
-.eleven  .ten.insert-margin { width:92.25092250922509%; padding-left:0.7380073800738007%;  padding-right:0.7380073800738007%;}
-.eleven  .eleven.insert-margin { width:101.4760147601476%; padding-left:0.7380073800738007%;  padding-right:0.7380073800738007%;}
+.eleven .one.insert-margin { width:9.216589861751153%; padding-left:0.6912442396313364%;  padding-right:0.6912442396313364%;}
+.eleven .two.insert-margin { width:18.433179723502306%; padding-left:0.6912442396313364%;  padding-right:0.6912442396313364%;}
+.eleven .three.insert-margin { width:27.64976958525346%; padding-left:0.6912442396313364%;  padding-right:0.6912442396313364%;}
+.eleven .four.insert-margin { width:36.86635944700461%; padding-left:0.6912442396313364%;  padding-right:0.6912442396313364%;}
+.eleven .five.insert-margin { width:46.08294930875576%; padding-left:0.6912442396313364%;  padding-right:0.6912442396313364%;}
+.eleven .six.insert-margin { width:55.29953917050692%; padding-left:0.6912442396313364%;  padding-right:0.6912442396313364%;}
+.eleven .seven.insert-margin { width:64.51612903225806%; padding-left:0.6912442396313364%;  padding-right:0.6912442396313364%;}
+.eleven .eight.insert-margin { width:73.73271889400922%; padding-left:0.6912442396313364%;  padding-right:0.6912442396313364%;}
+.eleven .nine.insert-margin { width:82.94930875576037%; padding-left:0.6912442396313364%;  padding-right:0.6912442396313364%;}
+.eleven .ten.insert-margin { width:92.16589861751152%; padding-left:0.6912442396313364%;  padding-right:0.6912442396313364%;}
+.eleven .eleven.insert-margin { width:101.38248847926268%; padding-left:0.6912442396313364%;  padding-right:0.6912442396313364%;}
 /*single-margin*/
-.eleven  .one.insert-margin-right { width:8.487084870848708%; padding-right:0.7380073800738007%; }
-.eleven  .one.insert-margin-left { width:8.487084870848708%; padding-left:0.7380073800738007%; }
-.eleven  .two.insert-margin-right { width:17.712177121771216%; padding-right:0.7380073800738007%; }
-.eleven  .two.insert-margin-left { width:17.712177121771216%; padding-left:0.7380073800738007%; }
-.eleven  .three.insert-margin-right { width:26.937269372693727%; padding-right:0.7380073800738007%; }
-.eleven  .three.insert-margin-left { width:26.937269372693727%; padding-left:0.7380073800738007%; }
-.eleven  .four.insert-margin-right { width:36.162361623616235%; padding-right:0.7380073800738007%; }
-.eleven  .four.insert-margin-left { width:36.162361623616235%; padding-left:0.7380073800738007%; }
-.eleven  .five.insert-margin-right { width:45.38745387453875%; padding-right:0.7380073800738007%; }
-.eleven  .five.insert-margin-left { width:45.38745387453875%; padding-left:0.7380073800738007%; }
-.eleven  .six.insert-margin-right { width:54.61254612546126%; padding-right:0.7380073800738007%; }
-.eleven  .six.insert-margin-left { width:54.61254612546126%; padding-left:0.7380073800738007%; }
-.eleven  .seven.insert-margin-right { width:63.837638376383765%; padding-right:0.7380073800738007%; }
-.eleven  .seven.insert-margin-left { width:63.837638376383765%; padding-left:0.7380073800738007%; }
-.eleven  .eight.insert-margin-right { width:73.06273062730627%; padding-right:0.7380073800738007%; }
-.eleven  .eight.insert-margin-left { width:73.06273062730627%; padding-left:0.7380073800738007%; }
-.eleven  .nine.insert-margin-right { width:82.28782287822878%; padding-right:0.7380073800738007%; }
-.eleven  .nine.insert-margin-left { width:82.28782287822878%; padding-left:0.7380073800738007%; }
-.eleven  .ten.insert-margin-right { width:91.5129151291513%; padding-right:0.7380073800738007%; }
-.eleven  .ten.insert-margin-left { width:91.5129151291513%; padding-left:0.7380073800738007%; }
-.eleven  .eleven.insert-margin-right { width:100.7380073800738%; padding-right:0.7380073800738007%; }
-.eleven  .eleven.insert-margin-left { width:100.7380073800738%; padding-left:0.7380073800738007%; }
+.eleven .one.insert-margin-right { width:8.525345622119817%; padding-right:0.6912442396313364%; }
+.eleven .one.insert-margin-left { width:8.525345622119817%; padding-left:0.6912442396313364%; }
+.eleven .two.insert-margin-right { width:17.741935483870968%; padding-right:0.6912442396313364%; }
+.eleven .two.insert-margin-left { width:17.741935483870968%; padding-left:0.6912442396313364%; }
+.eleven .three.insert-margin-right { width:26.95852534562212%; padding-right:0.6912442396313364%; }
+.eleven .three.insert-margin-left { width:26.95852534562212%; padding-left:0.6912442396313364%; }
+.eleven .four.insert-margin-right { width:36.175115207373274%; padding-right:0.6912442396313364%; }
+.eleven .four.insert-margin-left { width:36.175115207373274%; padding-left:0.6912442396313364%; }
+.eleven .five.insert-margin-right { width:45.39170506912442%; padding-right:0.6912442396313364%; }
+.eleven .five.insert-margin-left { width:45.39170506912442%; padding-left:0.6912442396313364%; }
+.eleven .six.insert-margin-right { width:54.60829493087558%; padding-right:0.6912442396313364%; }
+.eleven .six.insert-margin-left { width:54.60829493087558%; padding-left:0.6912442396313364%; }
+.eleven .seven.insert-margin-right { width:63.824884792626726%; padding-right:0.6912442396313364%; }
+.eleven .seven.insert-margin-left { width:63.824884792626726%; padding-left:0.6912442396313364%; }
+.eleven .eight.insert-margin-right { width:73.04147465437788%; padding-right:0.6912442396313364%; }
+.eleven .eight.insert-margin-left { width:73.04147465437788%; padding-left:0.6912442396313364%; }
+.eleven .nine.insert-margin-right { width:82.25806451612904%; padding-right:0.6912442396313364%; }
+.eleven .nine.insert-margin-left { width:82.25806451612904%; padding-left:0.6912442396313364%; }
+.eleven .ten.insert-margin-right { width:91.47465437788019%; padding-right:0.6912442396313364%; }
+.eleven .ten.insert-margin-left { width:91.47465437788019%; padding-left:0.6912442396313364%; }
+.eleven .eleven.insert-margin-right { width:100.69124423963135%; padding-right:0.6912442396313364%; }
+.eleven .eleven.insert-margin-left { width:100.69124423963135%; padding-left:0.6912442396313364%; }
+/*offset*/
+.eleven .offset-by-one { margin-left:9.216589861751153%;}
+.eleven .offset-by-two { margin-left:18.433179723502306%;}
+.eleven .offset-by-three { margin-left:27.64976958525346%;}
+.eleven .offset-by-four { margin-left:36.86635944700461%;}
+.eleven .offset-by-five { margin-left:46.08294930875576%;}
+.eleven .offset-by-six { margin-left:55.29953917050692%;}
+.eleven .offset-by-seven { margin-left:64.51612903225806%;}
+.eleven .offset-by-eight { margin-left:73.73271889400922%;}
+.eleven .offset-by-nine { margin-left:82.94930875576037%;}
+.eleven .offset-by-ten { margin-left:92.16589861751152%;}
+.eleven .offset-by-eleven { margin-left:101.38248847926268%;}
+/*source ordering - push*/
+.eleven .push-one, .eleven .pull-one { left:8.525345622119817%;}
+.eleven .push-two, .eleven .pull-two { left:17.741935483870968%;}
+.eleven .push-three, .eleven .pull-three { left:26.95852534562212%;}
+.eleven .push-four, .eleven .pull-four { left:36.175115207373274%;}
+.eleven .push-five, .eleven .pull-five { left:45.39170506912442%;}
+.eleven .push-six, .eleven .pull-six { left:54.60829493087558%;}
+.eleven .push-seven, .eleven .pull-seven { left:63.824884792626726%;}
+.eleven .push-eight, .eleven .pull-eight { left:73.04147465437788%;}
+.eleven .push-nine, .eleven .pull-nine { left:82.25806451612904%;}
+.eleven .push-ten, .eleven .pull-ten { left:91.47465437788019%;}
+.eleven .push-eleven, .eleven .pull-eleven { left:100.69124423963135%;}
 
 
 /*level2 under .twelve */
-.twelve  .one { width:7.094594594594595%; margin-right:0.6756756756756757%; margin-left:0.6756756756756757%; }
-.twelve  .two { width:15.54054054054054%; margin-right:0.6756756756756757%; margin-left:0.6756756756756757%; }
-.twelve  .three { width:23.986486486486484%; margin-right:0.6756756756756757%; margin-left:0.6756756756756757%; }
-.twelve  .four { width:32.432432432432435%; margin-right:0.6756756756756757%; margin-left:0.6756756756756757%; }
-.twelve  .five { width:40.87837837837838%; margin-right:0.6756756756756757%; margin-left:0.6756756756756757%; }
-.twelve  .six { width:49.32432432432432%; margin-right:0.6756756756756757%; margin-left:0.6756756756756757%; }
-.twelve  .seven { width:57.770270270270274%; margin-right:0.6756756756756757%; margin-left:0.6756756756756757%; }
-.twelve  .eight { width:66.21621621621621%; margin-right:0.6756756756756757%; margin-left:0.6756756756756757%; }
-.twelve  .nine { width:74.66216216216216%; margin-right:0.6756756756756757%; margin-left:0.6756756756756757%; }
-.twelve  .ten { width:83.1081081081081%; margin-right:0.6756756756756757%; margin-left:0.6756756756756757%; }
-.twelve  .eleven { width:91.55405405405406%; margin-right:0.6756756756756757%; margin-left:0.6756756756756757%; }
-.twelve  .twelve { width:100%; margin-right:0.6756756756756757%; margin-left:0.6756756756756757%; }
+.twelve .one { width:7.172995780590717%; margin-right:0.6329113924050633%; margin-left:0.6329113924050633%; }
+.twelve .two { width:15.611814345991561%; margin-right:0.6329113924050633%; margin-left:0.6329113924050633%; }
+.twelve .three { width:24.050632911392405%; margin-right:0.6329113924050633%; margin-left:0.6329113924050633%; }
+.twelve .four { width:32.48945147679325%; margin-right:0.6329113924050633%; margin-left:0.6329113924050633%; }
+.twelve .five { width:40.92827004219409%; margin-right:0.6329113924050633%; margin-left:0.6329113924050633%; }
+.twelve .six { width:49.36708860759494%; margin-right:0.6329113924050633%; margin-left:0.6329113924050633%; }
+.twelve .seven { width:57.80590717299579%; margin-right:0.6329113924050633%; margin-left:0.6329113924050633%; }
+.twelve .eight { width:66.24472573839662%; margin-right:0.6329113924050633%; margin-left:0.6329113924050633%; }
+.twelve .nine { width:74.68354430379746%; margin-right:0.6329113924050633%; margin-left:0.6329113924050633%; }
+.twelve .ten { width:83.12236286919831%; margin-right:0.6329113924050633%; margin-left:0.6329113924050633%; }
+.twelve .eleven { width:91.56118143459916%; margin-right:0.6329113924050633%; margin-left:0.6329113924050633%; }
+.twelve .twelve { width:100%; margin-right:0.6329113924050633%; margin-left:0.6329113924050633%; }
 /*both margins inserted*/
-.twelve  .one.insert-margin { width:8.445945945945946%; padding-left:0.6756756756756757%;  padding-right:0.6756756756756757%;}
-.twelve  .two.insert-margin { width:16.89189189189189%; padding-left:0.6756756756756757%;  padding-right:0.6756756756756757%;}
-.twelve  .three.insert-margin { width:25.33783783783784%; padding-left:0.6756756756756757%;  padding-right:0.6756756756756757%;}
-.twelve  .four.insert-margin { width:33.78378378378378%; padding-left:0.6756756756756757%;  padding-right:0.6756756756756757%;}
-.twelve  .five.insert-margin { width:42.22972972972973%; padding-left:0.6756756756756757%;  padding-right:0.6756756756756757%;}
-.twelve  .six.insert-margin { width:50.67567567567568%; padding-left:0.6756756756756757%;  padding-right:0.6756756756756757%;}
-.twelve  .seven.insert-margin { width:59.12162162162162%; padding-left:0.6756756756756757%;  padding-right:0.6756756756756757%;}
-.twelve  .eight.insert-margin { width:67.56756756756756%; padding-left:0.6756756756756757%;  padding-right:0.6756756756756757%;}
-.twelve  .nine.insert-margin { width:76.01351351351352%; padding-left:0.6756756756756757%;  padding-right:0.6756756756756757%;}
-.twelve  .ten.insert-margin { width:84.45945945945947%; padding-left:0.6756756756756757%;  padding-right:0.6756756756756757%;}
-.twelve  .eleven.insert-margin { width:92.9054054054054%; padding-left:0.6756756756756757%;  padding-right:0.6756756756756757%;}
-.twelve  .twelve.insert-margin { width:101.35135135135135%; padding-left:0.6756756756756757%;  padding-right:0.6756756756756757%;}
+.twelve .one.insert-margin { width:8.438818565400844%; padding-left:0.6329113924050633%;  padding-right:0.6329113924050633%;}
+.twelve .two.insert-margin { width:16.877637130801688%; padding-left:0.6329113924050633%;  padding-right:0.6329113924050633%;}
+.twelve .three.insert-margin { width:25.31645569620253%; padding-left:0.6329113924050633%;  padding-right:0.6329113924050633%;}
+.twelve .four.insert-margin { width:33.755274261603375%; padding-left:0.6329113924050633%;  padding-right:0.6329113924050633%;}
+.twelve .five.insert-margin { width:42.19409282700422%; padding-left:0.6329113924050633%;  padding-right:0.6329113924050633%;}
+.twelve .six.insert-margin { width:50.63291139240506%; padding-left:0.6329113924050633%;  padding-right:0.6329113924050633%;}
+.twelve .seven.insert-margin { width:59.07172995780591%; padding-left:0.6329113924050633%;  padding-right:0.6329113924050633%;}
+.twelve .eight.insert-margin { width:67.51054852320675%; padding-left:0.6329113924050633%;  padding-right:0.6329113924050633%;}
+.twelve .nine.insert-margin { width:75.9493670886076%; padding-left:0.6329113924050633%;  padding-right:0.6329113924050633%;}
+.twelve .ten.insert-margin { width:84.38818565400844%; padding-left:0.6329113924050633%;  padding-right:0.6329113924050633%;}
+.twelve .eleven.insert-margin { width:92.82700421940928%; padding-left:0.6329113924050633%;  padding-right:0.6329113924050633%;}
+.twelve .twelve.insert-margin { width:101.26582278481013%; padding-left:0.6329113924050633%;  padding-right:0.6329113924050633%;}
 /*single-margin*/
-.twelve  .one.insert-margin-right { width:7.77027027027027%; padding-right:0.6756756756756757%; }
-.twelve  .one.insert-margin-left { width:7.77027027027027%; padding-left:0.6756756756756757%; }
-.twelve  .two.insert-margin-right { width:16.216216216216218%; padding-right:0.6756756756756757%; }
-.twelve  .two.insert-margin-left { width:16.216216216216218%; padding-left:0.6756756756756757%; }
-.twelve  .three.insert-margin-right { width:24.66216216216216%; padding-right:0.6756756756756757%; }
-.twelve  .three.insert-margin-left { width:24.66216216216216%; padding-left:0.6756756756756757%; }
-.twelve  .four.insert-margin-right { width:33.108108108108105%; padding-right:0.6756756756756757%; }
-.twelve  .four.insert-margin-left { width:33.108108108108105%; padding-left:0.6756756756756757%; }
-.twelve  .five.insert-margin-right { width:41.55405405405405%; padding-right:0.6756756756756757%; }
-.twelve  .five.insert-margin-left { width:41.55405405405405%; padding-left:0.6756756756756757%; }
-.twelve  .six.insert-margin-right { width:50%; padding-right:0.6756756756756757%; }
-.twelve  .six.insert-margin-left { width:50%; padding-left:0.6756756756756757%; }
-.twelve  .seven.insert-margin-right { width:58.445945945945944%; padding-right:0.6756756756756757%; }
-.twelve  .seven.insert-margin-left { width:58.445945945945944%; padding-left:0.6756756756756757%; }
-.twelve  .eight.insert-margin-right { width:66.8918918918919%; padding-right:0.6756756756756757%; }
-.twelve  .eight.insert-margin-left { width:66.8918918918919%; padding-left:0.6756756756756757%; }
-.twelve  .nine.insert-margin-right { width:75.33783783783784%; padding-right:0.6756756756756757%; }
-.twelve  .nine.insert-margin-left { width:75.33783783783784%; padding-left:0.6756756756756757%; }
-.twelve  .ten.insert-margin-right { width:83.78378378378379%; padding-right:0.6756756756756757%; }
-.twelve  .ten.insert-margin-left { width:83.78378378378379%; padding-left:0.6756756756756757%; }
-.twelve  .eleven.insert-margin-right { width:92.22972972972973%; padding-right:0.6756756756756757%; }
-.twelve  .eleven.insert-margin-left { width:92.22972972972973%; padding-left:0.6756756756756757%; }
-.twelve  .twelve.insert-margin-right { width:100.67567567567568%; padding-right:0.6756756756756757%; }
-.twelve  .twelve.insert-margin-left { width:100.67567567567568%; padding-left:0.6756756756756757%; }
+.twelve .one.insert-margin-right { width:7.805907172995781%; padding-right:0.6329113924050633%; }
+.twelve .one.insert-margin-left { width:7.805907172995781%; padding-left:0.6329113924050633%; }
+.twelve .two.insert-margin-right { width:16.244725738396625%; padding-right:0.6329113924050633%; }
+.twelve .two.insert-margin-left { width:16.244725738396625%; padding-left:0.6329113924050633%; }
+.twelve .three.insert-margin-right { width:24.68354430379747%; padding-right:0.6329113924050633%; }
+.twelve .three.insert-margin-left { width:24.68354430379747%; padding-left:0.6329113924050633%; }
+.twelve .four.insert-margin-right { width:33.12236286919831%; padding-right:0.6329113924050633%; }
+.twelve .four.insert-margin-left { width:33.12236286919831%; padding-left:0.6329113924050633%; }
+.twelve .five.insert-margin-right { width:41.561181434599156%; padding-right:0.6329113924050633%; }
+.twelve .five.insert-margin-left { width:41.561181434599156%; padding-left:0.6329113924050633%; }
+.twelve .six.insert-margin-right { width:50%; padding-right:0.6329113924050633%; }
+.twelve .six.insert-margin-left { width:50%; padding-left:0.6329113924050633%; }
+.twelve .seven.insert-margin-right { width:58.438818565400844%; padding-right:0.6329113924050633%; }
+.twelve .seven.insert-margin-left { width:58.438818565400844%; padding-left:0.6329113924050633%; }
+.twelve .eight.insert-margin-right { width:66.87763713080169%; padding-right:0.6329113924050633%; }
+.twelve .eight.insert-margin-left { width:66.87763713080169%; padding-left:0.6329113924050633%; }
+.twelve .nine.insert-margin-right { width:75.31645569620254%; padding-right:0.6329113924050633%; }
+.twelve .nine.insert-margin-left { width:75.31645569620254%; padding-left:0.6329113924050633%; }
+.twelve .ten.insert-margin-right { width:83.75527426160338%; padding-right:0.6329113924050633%; }
+.twelve .ten.insert-margin-left { width:83.75527426160338%; padding-left:0.6329113924050633%; }
+.twelve .eleven.insert-margin-right { width:92.19409282700421%; padding-right:0.6329113924050633%; }
+.twelve .eleven.insert-margin-left { width:92.19409282700421%; padding-left:0.6329113924050633%; }
+.twelve .twelve.insert-margin-right { width:100.63291139240506%; padding-right:0.6329113924050633%; }
+.twelve .twelve.insert-margin-left { width:100.63291139240506%; padding-left:0.6329113924050633%; }
+/*offset*/
+.twelve .offset-by-one { margin-left:8.438818565400844%;}
+.twelve .offset-by-two { margin-left:16.877637130801688%;}
+.twelve .offset-by-three { margin-left:25.31645569620253%;}
+.twelve .offset-by-four { margin-left:33.755274261603375%;}
+.twelve .offset-by-five { margin-left:42.19409282700422%;}
+.twelve .offset-by-six { margin-left:50.63291139240506%;}
+.twelve .offset-by-seven { margin-left:59.07172995780591%;}
+.twelve .offset-by-eight { margin-left:67.51054852320675%;}
+.twelve .offset-by-nine { margin-left:75.9493670886076%;}
+.twelve .offset-by-ten { margin-left:84.38818565400844%;}
+.twelve .offset-by-eleven { margin-left:92.82700421940928%;}
+/*source ordering - push*/
+.twelve .push-one, .twelve .pull-one { left:7.805907172995781%;}
+.twelve .push-two, .twelve .pull-two { left:16.244725738396625%;}
+.twelve .push-three, .twelve .pull-three { left:24.68354430379747%;}
+.twelve .push-four, .twelve .pull-four { left:33.12236286919831%;}
+.twelve .push-five, .twelve .pull-five { left:41.561181434599156%;}
+.twelve .push-six, .twelve .pull-six { left:50%;}
+.twelve .push-seven, .twelve .pull-seven { left:58.438818565400844%;}
+.twelve .push-eight, .twelve .pull-eight { left:66.87763713080169%;}
+.twelve .push-nine, .twelve .pull-nine { left:75.31645569620254%;}
+.twelve .push-ten, .twelve .pull-ten { left:83.75527426160338%;}
+.twelve .push-eleven, .twelve .pull-eleven { left:92.19409282700421%;}

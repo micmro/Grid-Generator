@@ -12,8 +12,9 @@
         #errorList {display:none; margin:5px 10px 25px; color:#c00;}
         #resultHolder {clear:both; width:70%;}
         #resultHolder div{margin-bottom:15px;}
-        #resultCss, #staticCss, #IECss {width:99%; height:350px;}
+        #resultCss, #staticCss, #IECss, #exampleHtml {width:99%; height:350px;}
         #IECss {height:100px;}
+        #exampleHtml {height:100px;}
         #inputHolder {padding:15px 25px 25px;}
         #inputHolder label {float:left; clear:both; width:125px;}
         #demoGridholder {background:#ccf; border:solid 2px #333; float:left; clear:both; width:100%; margin:0 0 25px;}
@@ -60,7 +61,9 @@
     <option value="6">6</option>
 </select>
 <br /><br />
-<label for="addInsertedMargines" >Add InsertMargine (single and both) CSS:</label> <input type="checkbox" checked="checked" id="addInsertedMargines" /><br /><br />
+<label for="addInsertedMargins" >Add InsertMargine (single and both) CSS:</label> <input type="checkbox" checked="checked" id="addInsertedMargins" /><br /><br />
+<label for="addOffset" >Add Offset CSS:</label> <input type="checkbox" checked="checked" id="addOffset" /><br /><br />
+<label for="addSourceOrdering" >Add Source ordering CSS:</label> <input type="checkbox" id="addSourceOrdering" /><br /><br />
 <label for="addCommentsCheck" >Add Comments to CSS:</label> <input type="checkbox" checked="checked" id="addCommentsCheck" /><br /><br />
 <br /><br />
 
@@ -84,7 +87,7 @@
 </div>
 <div>
 <label for="exampleHtml">Example Html Structure</label><br />
-<textarea id="exampleHtml" cols="100" rows="5">
+<textarea  id="exampleHtml" cols="100" rows="5">
 </textarea>
 </div>
 </fieldset>
